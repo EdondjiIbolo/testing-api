@@ -25,27 +25,87 @@
     "Finishing": [
       {
         "name": "预处理",
-        "Features": [1, 2, 3, 4, 5],
+        "Features": [
+          {
+            "name": "去毛刺",
+            "attribute": "去除工件上由于机加工产生的毛刺和锐边。",
+            "description": "使表面光滑、延长零件寿命"
+          }
+        ],
         "custom": "Custom aluminium alloys are also available"
       },
       {
         "name": "表面强化",
-        "Features": [1, 2, 3, 4, 5],
+        "Features": [
+          {
+            "name": "淬火",
+            "attribute": "通过快速加热和冷却来改变金属的晶体结构",
+            "description": "提高硬度和耐磨性"
+          },
+          {
+            "name": "回火",
+            "attribute": "在较低温度下加热以消除淬火产生的内部应力。",
+            "description": "使工件几何尺寸和性能保持稳定"
+          },
+          {
+            "name": "硬化",
+            "attribute": "如渗碳、氮化等。",
+            "description": "使表面层变硬而心部保持韧性"
+          }
+        ],
         "custom": "Custom aluminium alloys are also available"
       },
       {
         "name": "表面涂层",
-        "Features": [1, 2, 3, 4, 5],
+        "Features": [
+          {
+            "name": "表面涂层",
+            "attribute": "为工件提供防腐、美观或特定的功能涂层。",
+            "description": "--"
+          },
+          {
+            "name": "金属喷涂",
+            "attribute": "如镀锌、镀铬、喷铝等，以增加耐腐蚀性或美观性。",
+            "description": "--"
+          },
+          {
+            "name": "陶瓷涂层",
+            "attribute": "提供高硬度、耐磨和耐腐蚀性",
+            "description": "--"
+          }
+        ],
         "custom": "Custom aluminium alloys are also available"
       },
       {
         "name": "表面处理与精饰",
-        "Features": [1, 2, 3, 4, 5],
+        "Features": [
+          {
+            "name": "抛光",
+            "attribute": "通过机械或化学方法使表面变得光滑。",
+            "description": "--"
+          },
+          {
+            "name": "研磨",
+            "attribute": "去除小的不平部分，进一步提高表面质量",
+            "description": "--"
+          },
+          {
+            "name": "喷砂",
+            "attribute": "用砂粒冲击工件表面，以清理或产生特定的表面纹理",
+            "description": "--"
+          }
+        ],
         "custom": "Custom aluminium alloys are also available"
       },
       {
         "name": "防腐蚀处理",
-        "Features": [1, 2, 3, 4, 5],
+        "Features": [
+          {
+            "name": "电镀",
+            "attribute": "如镀锌、镀铬等，提供一层防腐蚀的金属层",
+            "description": "--"
+          }
+        ],
         "custom": "Custom aluminium alloys are also available"
       }
     ],
