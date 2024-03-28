@@ -56,7 +56,7 @@
         "materialFeatures": [
           {
             "featureName": "MIC-6",
-            "materialPricingRange": "2$",
+            "pricingRange": "2$",
             "productionPriceRange": "2$",
             "featureAlternativeName": "none",
             "featureCharacter": "高强度-易加工-耐腐蚀-焊接性良好",
@@ -64,7 +64,7 @@
           },
           {
             "featureName": "铝合金 2A12",
-            "materialPricingRange": "2$",
+            "pricingRange": "2$",
             "productionPriceRange": "2$",
             "featureAlternativeName": "none",
             "featureCharacter": "高强度-焊接性良好",
@@ -72,7 +72,7 @@
           },
           {
             "featureName": "7075 铝",
-            "materialPricingRange": "5$",
+            "pricingRange": "5$",
             "productionPriceRange": "3$",
             "featureAlternativeName": "EN AW-7075",
             "featureCharacter": "高强度-耐腐蚀-加工性能极佳-机械性能良好",
@@ -88,7 +88,7 @@
           },
           {
             "featureName": "铝合金 6082",
-            "materialPricingRange": "1$",
+            "pricingRange": "1$",
             "productionPriceRange": "1$",
             "featureAlternativeName": "EN AW-6082",
             "featureCharacter": "耐腐蚀-焊接性、导热性良好",
@@ -96,7 +96,7 @@
           },
           {
             "featureName": "6060铝",
-            "materialPricingRange": "3$",
+            "pricingRange": "3$",
             "productionPriceRange": "1$",
             "featureAlternativeName": "EN AW-6060",
             "featureCharacter": "耐腐蚀-不受气候影响",
@@ -104,7 +104,7 @@
           },
           {
             "featureName": "铝合金2007/2030",
-            "materialPricingRange": "1$",
+            "pricingRange": "1$",
             "productionPriceRange": "1$",
             "featureAlternativeName": "EN AW-2007/2030|AlCuMgPb",
             "featureCharacter": "耐腐蚀-不受气候影响",
@@ -112,7 +112,7 @@
           },
           {
             "featureName": "铝合金2017",
-            "materialPricingRange": "2$",
+            "pricingRange": "2$",
             "productionPriceRange": "1$",
             "featureAlternativeName": "EN AW-2017|AlCuMg1",
             "featureCharacter": "耐腐蚀-不受气候影响",
@@ -120,7 +120,7 @@
           },
           {
             "featureName": "铝合金 5083",
-            "materialPricingRange": "2$",
+            "pricingRange": "2$",
             "productionPriceRange": "2$",
             "featureAlternativeName": "EN AW-5083|AlMg4,5Mn0,7",
             "featureCharacter": "耐腐蚀-天然硬质-焊接性良好-不受气候影响",
@@ -128,7 +128,7 @@
           },
           {
             "featureName": "铝合金 5754",
-            "materialPricingRange": "3$",
+            "pricingRange": "3$",
             "productionPriceRange": "3$",
             "featureAlternativeName": "EN AW-5754|AlMg3",
             "featureCharacter": "耐腐蚀-天然硬质-焊接性良好",
@@ -136,7 +136,7 @@
           },
           {
             "featureName": "铝合金7019",
-            "materialPricingRange": "5$",
+            "pricingRange": "5$",
             "productionPriceRange": "2$",
             "featureAlternativeName": "EN AW-7019|AlZn4Mg2Mn",
             "featureCharacter": "高强度-耐腐蚀",
@@ -144,7 +144,7 @@
           },
           {
             "featureName": "铝合金 7021",
-            "materialPricingRange": "5$",
+            "pricingRange": "5$",
             "productionPriceRange": "2$",
             "featureAlternativeName": "nEN AW-7021|AlZn5,5Mg1,5",
             "featureCharacter": "高强度-耐腐蚀",
