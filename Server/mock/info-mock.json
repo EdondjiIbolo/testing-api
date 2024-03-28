@@ -249,7 +249,7 @@
             "featureName": "高碳铬轴承钢GCr15",
             "pricingRange": "1$",
             "productionPriceRange": "1$",
-            "featureAlternativeName": "",
+            "featureAlternativeName": "none",
             "featureCharacter": "高强度-高硬度-耐磨性-热加工性能良好",
             "featureUtility": "用于制造内燃机、电机车、机床、钻探机、以及矿山机械等传动轴上的钢球、滚子和轴套等"
           }
@@ -658,8 +658,8 @@
         "materialFeatures": [
           {
             "featureName": "MIC-6",
-            "pricingRange": "$",
-            "productionPriceRange": "$",
+            "pricingRange": "2$",
+            "productionPriceRange": "2$",
             "featureAlternativeName": "none",
             "featureCharacter": "High strength,easy to process,corrosion-resistant,good weldability",
             "featureUtility": "Used in aircraft parts,camera lenses,couplings,naval components,etc."
@@ -667,8 +667,8 @@
           {
             "featureName": "Aluminum alloy 2A12",
             "featureAlternativeName": "none",
-            "pricingRange": "$",
-            "productionPriceRange": "$",
+            "pricingRange": "2$",
+            "productionPriceRange": "2$",
             "featureCharacter": "High strength,good weldability",
             "featureUtility": "Used in aircraft frames,fuselages,automotive bodies,engines,etc."
           },
@@ -682,8 +682,8 @@
           },
           {
             "featureName": "6061 Aluminum",
-            "pricingRange": "$",
-            "productionPriceRange": "$",
+            "pricingRange": "3$",
+            "productionPriceRange": "2$",
             "featureAlternativeName": "EN AW-6061",
             "featureCharacter": "High strength,corrosion-resistant,high toughness,good weldability",
             "featureUtility": "Used in building structures,automotive parts,etc."
@@ -777,8 +777,8 @@
           },
           {
             "featureName": "Cr12",
-            "pricingRange": "$",
-            "productionPriceRange": "$",
+            "pricingRange": "5$",
+            "productionPriceRange": "3$",
             "featureAlternativeName": "Steel 1.2080|DIN x210Cr12",
             "featureCharacter": "Good quenching ability,good wear resistance",
             "featureUtility": "Used for highly wear-resistant cold punching dies and punches,cold cutting scissors,drill bushes,etc."
