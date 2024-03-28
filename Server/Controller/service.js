@@ -86,9 +86,16 @@ export class ServiceController {
     if (Validatedata.error) {
       return res.status(400).json({ error: Validatedata.error.message });
     }
-
+    const date = Date.now();
+    const newDate = new Date(date);
     const input = Validatedata.data;
-    const result = ServiceModel.newMessage({ input });
+    const result = ServiceModel.newMessage({ input, newDate });
+    const data = await result;
+    console.log(data);
+    if (data.err) {
+      res.status(400).json({ message: "Error al enviar al sms" });
+    }
+    res.status(200).json({ message: "Message sent successfully" });
   }
   static async SendVerificationCode(req, res) {
     const { phone } = req.body;

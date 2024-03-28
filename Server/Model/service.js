@@ -184,17 +184,17 @@ export class ServiceModel {
       return err;
     }
   } //DONE
-  static async newMessage({ input }) {
+  static async newMessage({ input, newDate }) {
     const { name, surename, email, companyName, phone, message, check } = input;
     try {
       const insertMessage = await connection.query(
-        "INSERT INTO messages ( name, surename, email, company , phone ,message, checked) VALUES (?,?,?,?,?,?,?)",
-        [name, surename, email, companyName, phone, message, check]
+        "INSERT INTO messages ( name, surename, email, company , phone ,message, want_update ,fecha_message) VALUES (?,?,?,?,?,?,?,?)",
+        [name, surename, email, companyName, phone, message, check, newDate]
       );
+
       return insertMessage;
     } catch (err) {
-      console.log(err);
-      return err;
+      return { err };
     }
   }
   static async SendVerificationCode({ encriptedCode, phone }) {
