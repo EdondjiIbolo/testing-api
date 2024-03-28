@@ -1264,20 +1264,20 @@
             "featureName": "Powder spray painting",
             "featureCharacter": " Excellent corrosion resistance,Aging resistance,Beautiful and diverse in color",
             "featureUtility": "Spray powder coating onto the surface of the workpiece,and use the phenomenon of corona discharge to make the powder coating adhere to the workpiece,forming a powdery coating; The powdery coating undergoes high-temperature baking,leveling and solidification to form final coatings with different effects",
-            "name": "Powder spray painting"
+            "name": "powder"
           },
           {
             "featureName": "Spray",
             "featureCharacter": "Corrosion resistance,beautiful",
             "featureUtility": "Pour the paint into a container,apply pressure with mechanical equipment,and spray the paint onto the product in a mist form to form a paint film",
-            "name": "Spray"
+            "name": "spraying"
           },
 
           {
             "featureName": "Spraying Teflon",
             "featureCharacter": "Heat resistance,Insulation stability,Low friction",
             "featureUtility": "Spray Teflon material is sprayed on a variety of substrate surfaces",
-            "name": "Spraying Teflon"
+            "name": "fuel"
           }
         ],
         "name": "Spray coating"
@@ -1290,13 +1290,13 @@
             "featureName": "Anodic oxidation",
             "featureCharacter": "Corrosion resistance,Wear resistance,High hardness",
             "featureUtility": "The treatment process of producing an oxide film on the surface of aluminum or aluminum alloy using electrolytic treatment,resulting in a thin film obtained through anodic oxidation treatment",
-            "name": "Anodic oxidation"
+            "name": "anodic"
           },
           {
             "featureName": "Hard anodizing",
             "featureCharacter": "Corrosion resistance,Wear resistance,High hardness,Hyperthermia",
             "featureUtility": "The corresponding electrolyte of the alloy (such as sulfuric acid,chromic acid,oxalic acid,etc.) is used as the anode,and the electrolysis is carried out under certain conditions and the applied current",
-            "name": "Hard-anodizing"
+            "name": "hard-anodizing"
           }
         ],
         "name": "Oxidation"
@@ -1309,24 +1309,24 @@
             "featureName": "Chromium plating",
             "featureCharacter": "Excellent corrosion resistance,beautiful,High hardness,Good high heat resistance",
             "featureUtility": "In the chrome plating process,the workpiece acts as a cathode and is placed in an electrolyte containing chromate. When energized,the chromium ions in the electrolyte are reduced to metallic chromium on the surface of the cathode,which is deposited on the surface of the workpiece to form a chromium layer",
-            "name": "Chromium plating"
+            "name": "chromium"
           },
           {
             "featureName": "Galvanizing",
             "featureCharacter": "Corrosion resistance,low cost,High hardness,High wear resistance",
             "featureUtility": "Place the pre plated parts into a mechanically rotating drum,add water and impact medium (glass pellets),and the drum rotates to form a fluid environment with collision and rolling effects",
-            "name": "Galvanizing"
+            "name": "galvanizing"
           },
           {
             "featureName": "Tin plating",
             "featureCharacter": " A layer of metal tin is coated on the surface of the metal to isolate the air and protect the copper from external corrosion",
-            "name": "Tin-plating"
+            "name": "tin-plating"
           },
           {
             "featureName": "Nickel plating",
             "featureCharacter": "Corrosion resistance,Wear resistance",
             "featureUtility": "Nickel plating is a process for electrolytic production of nickel coatings. It has good wear resistance,high corrosion resistance,and chemical resistance to alkali,acid,and gas",
-            "name": "Nickel-plating"
+            "name": "nickel-plating"
           }
         ],
         "name": "Electroplating"
@@ -1339,13 +1339,13 @@
             "featureName": "Blackening",
             "featureCharacter": "Corrosion resistance,low cost,No size change,Not easy to peel off",
             "featureUtility": "The use of chemical reactions to form a black protective film on the surface of the substrate has many advantages,such as endowing the substrate with rust prevention ability,low processing cost,no size change,and not easy to peel off",
-            "name": "Blackening"
+            "name": "blackening"
           },
           {
             "featureName": "Phosphating",
             "featureCharacter": "Corrosion resistance,beautiful,Improve the adhesion of the paint layer",
             "featureUtility": "Provide a protective film on the metal surface to isolate it from air,prevent corrosion,and improve the adhesion and corrosion resistance of the paint layer",
-            "name": "Phosphating"
+            "name": "phosphating"
           }
         ],
         "name": "Chemical"
@@ -1358,32 +1358,32 @@
             "featureName": "Annealing",
             "featureCharacter": "Improve plasticity,Improving cutting performance,Reduce hardness",
             "featureUtility": "A heat treatment process in which a metal or alloy is heated to an appropriate temperature,kept warm for a certain period of time,and then slowly cooled (usually cooled with a furnace).",
-            "name": "Annealing"
+            "name": "carbon-nitrogen"
           },
           {
             "featureName": "Quenching",
             "featureCharacter": "Wear resistance ,Improve hardness ,Increase intensity",
             "featureUtility": "Quenching is the process of selectively altering and modifying the microstructure to increase the mechanical resistance of turning and milling parts.",
-            "name": "Quenching"
+            "name": "annealing"
           },
           {
             "featureName": "Tempering",
             "featureCharacter": "Improving resilience,Reduce hardness,Improve organizational stability",
             "featureUtility": "This is a metal heat treatment process in which the quenched workpiece is reheated to an appropriate temperature below the lower critical temperature Ac1 (the starting temperature at which the pearlite converts to austenite when heated),and then cooled in air or water,oil and other media after holding it for a period of time.",
-            "name": "Tempering"
+            "name": "tempering"
           },
           {
             "featureName": "Nitriding",
             "featureCharacter": "Improving resilience,Increase intensity,Improve corrosion resistance performance,Wear resistance",
             "featureUtility": "Place the workpiece into a sealed container,pass through flowing ammonia gas and heat it. After a long period of insulation,the ammonia gas decomposes to produce active nitrogen atoms,which continuously adsorb onto the surface of the workpiece and diffuse into the surface of the workpiece,thereby changing the chemical composition and structure of the surface layer and achieving excellent surface performance.",
-            "name": "Nitriding"
+            "name": "quenching"
           },
 
           {
             "featureName": "Carbon nitrogen co infiltration",
             "featureCharacter": "Improving resilience, Increase intensity, Improve corrosion resistance performance, Wear resistance",
             "featureUtility": "Carbonitriding is a thermochemical surface quenching process,and its subsequent quenching steps are similar to surface quenching. During this process,the surface layer of the material is also rich in nitrogen. The temperature of carbon nitrogen co infiltration is lower than the temperature used in surface hardening. This reduces the risk of distortion. Can achieve higher surface hardness,especially for non-alloy steel and low alloy steel",
-            "name": "Carbon nitrogen co infiltration"
+            "name": "nitriding"
           }
         ],
         "name": "Surface"
@@ -1395,19 +1395,19 @@
             "featureName": "Polishing",
             "featureCharacter": "Black colored size ,accuracy ,Improve corrosion resistance performance ,beautiful",
             "featureUtility": "Polishing is a chemical surface treatment used to form a weak protective layer on the surface of black metals. Polishing is not a coating. Due to chemical processes,the material will turn black",
-            "name": "olishing"
+            "name": "laser"
           },
           {
             "featureName": "Electrolytic polishing",
             "featureCharacter": "Capable of polishing complex parts,efficient,Improve corrosion resistance performance",
             "featureUtility": "The polished workpiece is used as the anode,the insoluble metal is the cathode,and the two poles are immersed in the electrolytic cell at the same time,and the selective anode dissolution is generated by direct current,so as to achieve the effect of increasing the brightness of the workpiece surface.",
-            "name": "Electrolytic polishing"
+            "name": "polishing"
           },
           {
             "featureName": "Silk screen printing",
             "featureCharacter": "Low cost,efficient,Suitable for mass production with low precision",
             "featureUtility": "The pattern engraved on the steel plate is transferred to the workpiece through the role of the rubber head,and the ink permeates from the mesh of the screen plate to the product through the pressure of the rubber scraper to form the pattern.",
-            "name": "Silk screen printing"
+            "name": "wire"
           },
 
           {
@@ -1420,13 +1420,13 @@
             "featureName": "Sandblasting",
             "featureCharacter": "Surface strengthening ,beautiful,high efficiency",
             "featureUtility": "Sandblasting uses compressed air as the power to form a high-speed jet beam,which sprays abrasive at high speed onto the surface of the workpiece to be treated,causing physical changes to the outer surface of the workpiece",
-            "name": "Sandblasting"
+            "name": "sandblasting"
           },
           {
             "featureName": "wire drawing",
             "featureCharacter": " Surface strengthening,high strength,Corrosion resistance,smooth surface",
             "featureUtility": "A method of improving the surface smoothness of a workpiece by using the reciprocating motion of a drawn cloth strip and rubbing it back and forth on the surface of the workpiece,with a linear texture on the surface",
-            "name": "Wire drawing"
+            "name": "electrolytic"
           }
         ],
         "name": "Other"
