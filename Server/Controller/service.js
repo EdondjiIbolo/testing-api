@@ -207,8 +207,8 @@ export class ServiceController {
 
     if (data === "material") {
       if (lang === "ch") {
-        const { materialsInfo } = dataInfo;
-        return res.status(200).send(materialsInfo);
+        const { materialsInfo_ch } = dataInfo;
+        return res.status(200).send(materialsInfo_ch);
       }
 
       const { materialsInfo_en } = dataInfo;
@@ -220,9 +220,9 @@ export class ServiceController {
         const { finishingsInfo_ch } = dataInfo;
         return res.status(200).send(finishingsInfo_ch);
       }
-      const { finishingsInfo } = dataInfo;
+      const { finishingsInfo_en } = dataInfo;
 
-      return res.status(200).send(finishingsInfo);
+      return res.status(200).send(finishingsInfo_en);
     }
 
     console.log(dataInfo);
