@@ -254,7 +254,7 @@
             "featureUtility": "用于制造内燃机、电机车、机床、钻探机、以及矿山机械等传动轴上的钢球、滚子和轴套等"
           }
         ],
-        "name": "Steel"
+        "name": "steel"
       },
 
       {
@@ -357,7 +357,7 @@
             "featureUtility": "用于螺栓、螺母、水下设备、化学、染料等生产设备"
           }
         ],
-        "name": "Stainless-steel"
+        "name": "stainless-steel"
       },
 
       {
@@ -420,7 +420,7 @@
             "featureUtility": "用于机械工程中易磨损的零件"
           }
         ],
-        "name": "Tool"
+        "name": "tool"
       },
 
       {
@@ -555,7 +555,7 @@
             "featureUtility": "用于半导体和电子制造设备的组件"
           }
         ],
-        "name": "Plastic"
+        "name": "plastic"
       },
 
       {
@@ -634,7 +634,7 @@
             "featureUtility": "用于制造在中等载荷和中等滑动速度下的耐磨零件和结构零件"
           }
         ],
-        "name": "Copper"
+        "name": "copper"
       },
 
       {
@@ -856,7 +856,7 @@
             "featureUtility": "Used for steel balls,rollers,and shaft sleeves on drive shafts in internal combustion engines,motor vehicles,machine tools,drilling machines,and mining machinery,etc."
           }
         ],
-        "name": "Steel"
+        "name": "steel"
       },
 
       {
@@ -960,7 +960,7 @@
             "featureUtility": "Used for bolts,nuts,underwater equipment,chemical,dye production equipment,etc."
           }
         ],
-        "name": "Stainless-steel"
+        "name": "stainless-steel"
       },
 
       {
@@ -1158,7 +1158,7 @@
             "featureUtility": "Components for semiconductor and electronic manufacturing equipment"
           }
         ],
-        "name": "Plastic"
+        "name": "plastic"
       },
 
       {
@@ -1238,7 +1238,7 @@
             "featureUtility": "Used for manufacturing wear-resistant parts and structural parts under medium loads and medium sliding speeds"
           }
         ],
-        "name": "Copper"
+        "name": "copper"
       },
 
       {
@@ -1253,7 +1253,7 @@
             "featureUtility": "--"
           }
         ],
-        "name": "HCast Iron"
+        "name": "hierro"
       }
     ],
     "finishingsInfo_en": [
