@@ -936,7 +936,7 @@
             "productionPriceRange": "1$",
             "featureAlternativeName": "",
             "featureCharacter": "High strength, high hardness, wear resistance, good hot working performance",
-            "featureUtility": "Used for steel balls, rollers, and shaft sleeves on drive shafts in internal combustion engines, motor vehicles, machine tools, drilling machines, and mining machinery, etc.",
+            "featureUtility": "Used for steel balls, rollers, and shaft sleeves on drive shafts in internal combustion engines, motor vehicles ,etc.",
             "image": "GCr15"
           }
         ],
@@ -1191,7 +1191,7 @@
             "pricingRange": "5",
             "productionPriceRange": "--",
             "featureAlternativeName": "none",
-            "featureCharacter": "Extremely high mechanical strength, Very high surface hardness, Excellent wear resistance, High heat load capacity, Excellent chemical resistance, Good radiation resistance, Good machinability",
+            "featureCharacter": "Extremely high mechanical strength, Very high surface hardness, Excellent wear resistance, High heat load capacity, Excellent chemical resistance,  Good machinability",
             "featureUtility": "For applications with high requirements for mechanical strength, stiffness, and temperature resistance",
             "image": "PEEK"
           },
