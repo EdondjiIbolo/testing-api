@@ -498,14 +498,7 @@
             "featureCharacter": "耐化学性良好,高韧性,非常高的强度,高刚度,焊接和粘接性能良好,滑动和摩擦性能良好,机械加工性良好,增强的紫外线防护（PET黑）",
             "featureUtility": "用于做纤维、薄膜、工程塑料、聚酯瓶等"
           },
-          {
-            "featureName": "PMMA （亚克力玻璃）聚甲基丙烯酸甲酯",
-            "pricingRange": "1$",
-            "productionPriceRange": "--",
-            "featureAlternativeName": "none",
-            "featureCharacter": "极佳的电绝缘性能,耐光、耐候、耐辐射,高透明度",
-            "featureUtility": "用于水族箱和飞机窗户等各种产品"
-          },
+
           {
             "featureName": "PVDF 聚偏二氟乙烯",
             "pricingRange": "2$",
@@ -662,7 +655,8 @@
             "productionPriceRange": "2$",
             "featureAlternativeName": "none",
             "featureCharacter": "High strength,easy to process,corrosion-resistant,good weldability",
-            "featureUtility": "Used in aircraft parts,camera lenses,couplings,naval components,etc."
+            "featureUtility": "Used in aircraft parts,camera lenses,couplings,naval components,etc.",
+            "image": "MIC-6"
           },
           {
             "featureName": "Aluminum alloy 2A12",
@@ -670,7 +664,8 @@
             "pricingRange": "2$",
             "productionPriceRange": "2$",
             "featureCharacter": "High strength,good weldability",
-            "featureUtility": "Used in aircraft frames,fuselages,automotive bodies,engines,etc."
+            "featureUtility": "Used in aircraft frames,fuselages,automotive bodies,engines,etc.",
+            "image": "2A12"
           },
           {
             "featureName": "7075 Aluminum",
@@ -678,7 +673,8 @@
             "productionPriceRange": "3$",
             "featureAlternativeName": "EN AW-7075",
             "featureCharacter": "High strength,corrosion-resistant,excellent machinability,good mechanical performance",
-            "featureUtility": "Used in aerospace,mold processing,mechanical equipment,tooling and fixtures"
+            "featureUtility": "Used in aerospace,mold processing,mechanical equipment,tooling and fixtures",
+            "image": "7075"
           },
           {
             "featureName": "6061 Aluminum",
@@ -686,7 +682,8 @@
             "productionPriceRange": "2$",
             "featureAlternativeName": "EN AW-6061",
             "featureCharacter": "High strength,corrosion-resistant,high toughness,good weldability",
-            "featureUtility": "Used in building structures,automotive parts,etc."
+            "featureUtility": "Used in building structures,automotive parts,etc.",
+            "image": "6061"
           },
           {
             "featureName": "Aluminum alloy 6082",
@@ -694,7 +691,8 @@
             "productionPriceRange": "1$",
             "featureAlternativeName": "EN AW-6082",
             "featureCharacter": "Corrosion-resistant,good weldability and thermal conductivity",
-            "featureUtility": "Used in transportation and structural engineering industries"
+            "featureUtility": "Used in transportation and structural engineering industries",
+            "image": "6082"
           },
           {
             "featureName": "6060 Aluminum",
@@ -702,7 +700,8 @@
             "productionPriceRange": "1$",
             "featureAlternativeName": "EN AW-6060",
             "featureCharacter": "Corrosion-resistant,unaffected by weather",
-            "featureUtility": "Used in engineering applications with no special strength requirements,such as lighting,furniture,flooring,etc."
+            "featureUtility": "Used in engineering applications with no special strength requirements,such as lighting,furniture,flooring,etc.",
+            "image": "6060"
           },
           {
             "featureName": "Aluminum alloy 2007/2030",
@@ -710,7 +709,8 @@
             "productionPriceRange": "1$",
             "featureAlternativeName": "EN AW-2007/2030|AlCuMgPb",
             "featureCharacter": "Corrosion-resistant,unaffected by weather",
-            "featureUtility": "Used in aircraft components,gears and shafts,fuse parts,instrument shafts and gears,etc."
+            "featureUtility": "Used in aircraft components,gears and shafts,fuse parts,instrument shafts and gears,etc.",
+            "image": "2007_2030"
           },
           {
             "featureName": "Aluminum alloy 2017",
@@ -718,7 +718,8 @@
             "productionPriceRange": "1$",
             "featureAlternativeName": "EN AW-2017|AlCuMg1",
             "featureCharacter": "Corrosion-resistant,unaffected by weather",
-            "featureUtility": "Used in rivets,general mechanical parts,structural parts of transport tools,etc."
+            "featureUtility": "Used in rivets,general mechanical parts,structural parts of transport tools,etc.",
+            "image": "2017"
           },
           {
             "featureName": "Aluminum alloy 5083",
@@ -726,7 +727,8 @@
             "productionPriceRange": "2$",
             "featureAlternativeName": "nEN AW-5083|AlMg4,5Mn0,7",
             "featureCharacter": "Corrosion-resistant,naturally hard,good weldability,unaffected by weather",
-            "featureUtility": "Used in automotive,aircraft welding parts,drilling equipment,etc."
+            "featureUtility": "Used in automotive,aircraft welding parts,drilling equipment,etc.",
+            "image": "5083"
           },
           {
             "featureName": "Aluminum alloy 5754",
@@ -734,7 +736,8 @@
             "productionPriceRange": "3$",
             "featureAlternativeName": "EN AW-5754|AlMg3",
             "featureCharacter": "Corrosion-resistant,naturally hard,good weldability",
-            "featureUtility": "Used in welded structures,storage tanks,pressure vessels,etc."
+            "featureUtility": "Used in welded structures,storage tanks,pressure vessels,etc.",
+            "image": "5083"
           },
           {
             "featureName": "Aluminum alloy 7019",
@@ -742,7 +745,8 @@
             "productionPriceRange": "2$",
             "featureAlternativeName": "EN AW-7019|AlZn4Mg2Mn",
             "featureCharacter": "High strength,corrosion-resistant",
-            "featureUtility": "Used in aerospace industry,blow molding (bottle) molds,ultrasonic plastic welding molds,etc."
+            "featureUtility": "Used in aerospace industry,blow molding (bottle) molds,ultrasonic plastic welding molds,etc.",
+            "image": "7019"
           },
           {
             "featureName": "Aluminum alloy 7021",
@@ -750,7 +754,8 @@
             "productionPriceRange": "2$",
             "featureAlternativeName": "EN AW-7021|AlZn5,5Mg1,5",
             "featureCharacter": "High strength,corrosion-resistant",
-            "featureUtility": "Used in manufacturing aircraft equipment,everyday items,architectural doors and windows,etc."
+            "featureUtility": "Used in manufacturing aircraft equipment,everyday items,architectural doors and windows,etc.",
+            "image": "7021"
           }
         ],
         "name": "Aluminum"
@@ -765,7 +770,8 @@
             "productionPriceRange": "2$",
             "featureAlternativeName": "none",
             "featureCharacter": "Toughness,plasticity,good weldability",
-            "featureUtility": "Used for various welded structural components,common mechanical parts,etc."
+            "featureUtility": "Used for various welded structural components,common mechanical parts,etc.",
+            "image": "Q235A"
           },
           {
             "featureName": "C45",
@@ -773,7 +779,8 @@
             "productionPriceRange": "3$",
             "featureAlternativeName": "none",
             "featureCharacter": "High strength,easy to cut",
-            "featureUtility": "Used for parts requiring high strength,such as gears,shafts,piston pins,etc."
+            "featureUtility": "Used for parts requiring high strength,such as gears,shafts,piston pins,etc.",
+            "image": "C45"
           },
           {
             "featureName": "Cr12",
@@ -781,7 +788,8 @@
             "productionPriceRange": "3$",
             "featureAlternativeName": "Steel 1.2080|DIN x210Cr12",
             "featureCharacter": "Good quenching ability,good wear resistance",
-            "featureUtility": "Used for highly wear-resistant cold punching dies and punches,cold cutting scissors,drill bushes,etc."
+            "featureUtility": "Used for highly wear-resistant cold punching dies and punches,cold cutting scissors,drill bushes,etc.",
+            "image": "Cr12"
           },
           {
             "featureName": "16CrMnH",
@@ -789,7 +797,8 @@
             "productionPriceRange": "3$",
             "featureAlternativeName": "DIN EN-10084-2008",
             "featureCharacter": "Quenching ability,good machinability",
-            "featureUtility": "Used after carburizing and quenching,mainly used for manufacturing gears,worms,seal sleeves,etc."
+            "featureUtility": "Used after carburizing and quenching,mainly used for manufacturing gears,worms,seal sleeves,etc.",
+            "image": "16CrMnH"
           },
           {
             "featureName": "42CrMoS4",
@@ -797,7 +806,8 @@
             "productionPriceRange": "4$",
             "featureAlternativeName": "EN-ISO 683-2-2018",
             "featureCharacter": "High strength,toughness,good quenching ability",
-            "featureUtility": "Used for locomotive traction large gears,turbocharger transmission gears,heavily loaded connecting rods,etc."
+            "featureUtility": "Used for locomotive traction large gears,turbocharger transmission gears,heavily loaded connecting rods,etc.",
+            "image": "42CrMoS4"
           },
           {
             "featureName": "11SMn309SMn29",
@@ -805,7 +815,8 @@
             "productionPriceRange": "1$",
             "featureAlternativeName": "EN-10277-3-1999",
             "featureCharacter": "High strength,high hardness,good machinability",
-            "featureUtility": "Used for mechanical manufacturing,automation equipment,and high-precision parts manufacturing,etc."
+            "featureUtility": "Used for mechanical manufacturing,automation equipment,and high-precision parts manufacturing,etc.",
+            "image": "11SMn309SMn29"
           },
           {
             "featureName": "S355J2G3",
@@ -813,7 +824,8 @@
             "productionPriceRange": "2$",
             "featureAlternativeName": "EN-10025-2",
             "featureCharacter": "Corrosion-resistant,high strength,toughness,plasticity,good weldability",
-            "featureUtility": "Used for heavy-duty mechanical equipment,mining machinery,etc."
+            "featureUtility": "Used for heavy-duty mechanical equipment,mining machinery,etc.",
+            "image": "S355J2G3"
           },
           {
             "featureName": "S355JR St 52",
@@ -821,7 +833,8 @@
             "productionPriceRange": "2$",
             "featureAlternativeName": "EN-10025",
             "featureCharacter": "High strength,corrosion-resistant,high yield strength,high tensile strength",
-            "featureUtility": "Used for support structures,ship hulls,ship equipment,etc."
+            "featureUtility": "Used for support structures,ship hulls,ship equipment,etc.",
+            "image": "S355JR"
           },
           {
             "featureName": "11SMnPb379SMnPb36",
@@ -837,7 +850,8 @@
             "productionPriceRange": "3$",
             "featureAlternativeName": "EN-10277-2018EN-10132-4",
             "featureCharacter": "High strength,high hardness,high elasticity",
-            "featureUtility": "Used for manufacturing machinery parts requiring high strength,hardness,and wear resistance,such as shafts,pins,gears,bolts,etc."
+            "featureUtility": "Used for manufacturing machinery parts requiring high strength,hardness,and wear resistance,such as shafts,pins,gears,bolts,etc.",
+            "image": "C60E"
           },
           {
             "featureName": "Q235B",
@@ -845,7 +859,8 @@
             "productionPriceRange": "2$",
             "featureAlternativeName": "EN-S235JRDIN St 37",
             "featureCharacter": "High strength,high toughness,excellent machinability",
-            "featureUtility": "Used for ship,vehicle structural parts,manufacturing various tools,blades,molds and gauges,etc."
+            "featureUtility": "Used for ship,vehicle structural parts,manufacturing various tools,blades,molds and gauges,etc.",
+            "image": "Q235B"
           },
           {
             "featureName": "High carbon chromium bearing Steel GCr15",
@@ -853,7 +868,8 @@
             "productionPriceRange": "1$",
             "featureAlternativeName": "",
             "featureCharacter": "High strength,high hardness,wear resistance,good hot working performance",
-            "featureUtility": "Used for steel balls,rollers,and shaft sleeves on drive shafts in internal combustion engines,motor vehicles,machine tools,drilling machines,and mining machinery,etc."
+            "featureUtility": "Used for steel balls,rollers,and shaft sleeves on drive shafts in internal combustion engines,motor vehicles,machine tools,drilling machines,and mining machinery,etc.",
+            "image": "GCr15"
           }
         ],
         "name": "steel"
@@ -868,7 +884,8 @@
             "productionPriceRange": "4$",
             "featureAlternativeName": "EN 316Ti",
             "featureCharacter": "Corrosion-resistant,good machinability,note: not hardenable by heat treatment",
-            "featureUtility": "Used for manufacturing welded parts,etc."
+            "featureUtility": "Used for manufacturing welded parts,etc.",
+            "image": "1.4571"
           },
           {
             "featureName": "Stainless steel 1.4301",
@@ -876,7 +893,8 @@
             "productionPriceRange": "3$",
             "featureAlternativeName": "EN-X5CrNi18-10",
             "featureCharacter": "Heat-resistant,corrosion-resistant,low-temperature resistant,good machinability",
-            "featureUtility": "Used for food equipment,general chemical equipment,nuclear industry,etc."
+            "featureUtility": "Used for food equipment,general chemical equipment,nuclear industry,etc.",
+            "image": "1.4301"
           },
 
           {
@@ -885,7 +903,8 @@
             "productionPriceRange": "2$",
             "featureAlternativeName": "EN-X8CrNiS18-9",
             "featureCharacter": "Non-magnetic,excellent machinability,note,low corrosion resistance and cannot be welded",
-            "featureUtility": "Used in machining"
+            "featureUtility": "Used in machining",
+            "image": "1.4305"
           },
           {
             "featureName": "Stainless steel 1.4112",
@@ -893,7 +912,8 @@
             "productionPriceRange": "3$",
             "featureAlternativeName": "EN-X90CrMoV18",
             "featureCharacter": "Can be magnetized,corrosion-resistant,excellent machinability",
-            "featureUtility": "Used for tool manufacturing,mechanical components,chemical equipment,medical device manufacturing,etc."
+            "featureUtility": "Used for tool manufacturing,mechanical components,chemical equipment,medical device manufacturing,etc.",
+            "image": "1.4112"
           },
           {
             "featureName": "Stainless steel 1.4104",
@@ -901,7 +921,8 @@
             "productionPriceRange": "3$",
             "featureAlternativeName": "EN-X14CrMoS17",
             "featureCharacter": "Can be magnetized,corrosion-resistant,excellent machinability",
-            "featureUtility": "Used for manufacturing various machine parts"
+            "featureUtility": "Used for manufacturing various machine parts",
+            "image": "1.4104"
           },
           {
             "featureName": "Stainless steel 1.4841",
@@ -909,7 +930,8 @@
             "productionPriceRange": "5$",
             "featureAlternativeName": "EN-X6CrNiMoTi17-12-2",
             "featureCharacter": "Non-magnetic,heat-resistant,good welding performance,good strength performance at 1150°C,good corrosion resistance at 650°C,",
-            "featureUtility": "Used for high-temperature equipment in the petroleum,natural gas,and chemical industries"
+            "featureUtility": "Used for high-temperature equipment in the petroleum,natural gas,and chemical industries",
+            "image": "1.4841"
           },
           {
             "featureName": "Stainless steel 1.4542",
@@ -917,7 +939,8 @@
             "productionPriceRange": "4$",
             "featureAlternativeName": "EN-X5CrNiCuNb16-4",
             "featureCharacter": "Hardenable,corrosion-resistant,good hardness",
-            "featureUtility": "Used for manufacturing medical parts,general machinery,automotive instruments,etc."
+            "featureUtility": "Used for manufacturing medical parts,general machinery,automotive instruments,etc.",
+            "image": "1.4542"
           },
           {
             "featureName": "Stainless steel 1.4404",
@@ -925,7 +948,8 @@
             "productionPriceRange": "4$",
             "featureAlternativeName": "EN-X2CrNiMo17-12-2",
             "featureCharacter": "Corrosion resistant,good weldability",
-            "featureUtility": "Used in the chemical industry"
+            "featureUtility": "Used in the chemical industry",
+            "image": "1.4404"
           },
           {
             "featureName": "Stainless steel 1.4057",
@@ -933,7 +957,8 @@
             "productionPriceRange": "3$",
             "featureAlternativeName": "EN-X17CrNi16-2",
             "featureCharacter": "High strength,corrosion-resistant,good weldability",
-            "featureUtility": "Used for manufacturing high-strength,tough and corrosion-resistant components,and load-bearing components working in humid environments"
+            "featureUtility": "Used for manufacturing high-strength,tough and corrosion-resistant components,and load-bearing components working in humid environments",
+            "image": "1.4057"
           },
           {
             "featureName": "Stainless steel 420",
@@ -941,7 +966,8 @@
             "productionPriceRange": "3$",
             "featureAlternativeName": "EN-X20Cr13",
             "featureCharacter": "Corrosion-resistant,high wear resistance,excellent machinability",
-            "featureUtility": "Used for chemical industry,food processing equipment,etc."
+            "featureUtility": "Used for chemical industry,food processing equipment,etc.",
+            "image": "420"
           },
           {
             "featureName": "Stainless steel 430",
@@ -949,7 +975,8 @@
             "productionPriceRange": "3$",
             "featureAlternativeName": "EN-X6Cr17",
             "featureCharacter": "Corrosion-resistant,good thermal conductivity",
-            "featureUtility": "Used for fuel,burner components,household appliances,home appliance components"
+            "featureUtility": "Used for fuel,burner components,household appliances,home appliance components",
+            "image": "430"
           },
           {
             "featureName": "Stainless steel 316",
@@ -957,7 +984,8 @@
             "productionPriceRange": "3$",
             "featureAlternativeName": "EN-X5CrNiMo17-12-2",
             "featureCharacter": "Corrosion-resistant,high temperature resistant",
-            "featureUtility": "Used for bolts,nuts,underwater equipment,chemical,dye production equipment,etc."
+            "featureUtility": "Used for bolts,nuts,underwater equipment,chemical,dye production equipment,etc.",
+            "image": "316"
           }
         ],
         "name": "stainless-steel"
@@ -972,7 +1000,8 @@
             "pricingRange": "2",
             "productionPriceRange": "1",
             "featureCharacter": "Wear-resistant,good machinability",
-            "featureUtility": "Used for applications requiring a hard surface and tough core material"
+            "featureUtility": "Used for applications requiring a hard surface and tough core material",
+            "image": "1.173"
           },
           {
             "featureName": "1.2083",
@@ -980,7 +1009,8 @@
             "pricingRange": "3",
             "productionPriceRange": "4",
             "featureCharacter": "Wear-resistant",
-            "featureUtility": "Used for manufacturing molds for corrosive plastics"
+            "featureUtility": "Used for manufacturing molds for corrosive plastics",
+            "image": "1.2083"
           },
           {
             "featureName": "1.221",
@@ -988,7 +1018,8 @@
             "pricingRange": "4",
             "productionPriceRange": "2",
             "featureCharacter": "Easy to machine,wear-resistant,high strength,high hardness",
-            "featureUtility": "Used for components with high strength and hardness requirements"
+            "featureUtility": "Used for components with high strength and hardness requirements",
+            "image": "1.221"
           },
           {
             "featureName": "1.2312",
@@ -996,7 +1027,8 @@
             "pricingRange": "3",
             "productionPriceRange": "3",
             "featureCharacter": "Good nitriding performance,good machinability,wear-resistant,Note: limited polishability and etchability",
-            "featureUtility": "Used for tool and mold manufacturing"
+            "featureUtility": "Used for tool and mold manufacturing",
+            "image": "1.2312"
           },
           {
             "featureName": "1.2379",
@@ -1004,7 +1036,8 @@
             "pricingRange": "4",
             "productionPriceRange": "4",
             "featureCharacter": "High wear resistance,high strength,high hardness",
-            "featureUtility": "Used for tool manufacturing"
+            "featureUtility": "Used for tool manufacturing",
+            "image": "1.2379"
           },
           {
             "featureName": "1.2842",
@@ -1012,7 +1045,8 @@
             "pricingRange": "3",
             "productionPriceRange": "4",
             "featureCharacter": "High wear resistance,high hardness",
-            "featureUtility": "Used for molds,stamping tools,wire drawing dies,knives,bushings,lathes,chuck jaws"
+            "featureUtility": "Used for molds,stamping tools,wire drawing dies,knives,bushings,lathes,chuck jaws",
+            "image": "1.2842"
           },
           {
             "featureName": "1.3505",
@@ -1020,7 +1054,8 @@
             "pricingRange": "3",
             "productionPriceRange": "3",
             "featureCharacter": "High wear resistance,high hardness",
-            "featureUtility": "Used for parts in mechanical engineering prone to wear"
+            "featureUtility": "Used for parts in mechanical engineering prone to wear",
+            "image": "1.3505"
           }
         ],
         "name": "tool"
@@ -1035,7 +1070,8 @@
             "productionPriceRange": "--",
             "featureAlternativeName": "none",
             "featureCharacter": "Excellent dimensional stability,good electrical insulation performance,good machinability,low water absorption,not suitable for sliding applications",
-            "featureUtility": "Used for manufacturing large lampshades,protective glass,left and right eyepiece barrels of optical instruments,etc."
+            "featureUtility": "Used for manufacturing large lampshades,protective glass,left and right eyepiece barrels of optical instruments,etc.",
+            "image": ""
           },
           {
             "featureName": "POM Polyoxymethylene",
@@ -1043,7 +1079,8 @@
             "productionPriceRange": "--",
             "featureAlternativeName": "none",
             "featureCharacter": "Excellent mechanical performance,excellent sliding performance,good creep resistance,excellent machinability",
-            "featureUtility": "Used for dry friction applications"
+            "featureUtility": "Used for dry friction applications",
+            "image": "POM"
           },
           {
             "featureName": "Acrylic",
@@ -1051,7 +1088,8 @@
             "productionPriceRange": "--",
             "featureAlternativeName": "none",
             "featureCharacter": "High hardness,High transparency",
-            "featureUtility": "Used for acrylic lightboxes,advertising signs,etc"
+            "featureUtility": "Used for acrylic lightboxes,advertising signs,etc",
+            "image": "Acrylic"
           },
           {
             "featureName": "PP-H polypropylene",
@@ -1059,7 +1097,8 @@
             "productionPriceRange": "--",
             "featureAlternativeName": "none",
             "featureCharacter": "Good chemical resistance,Excellent electrical insulation performance",
-            "featureUtility": "Used for medical devices,cars,bicycles,parts,conveying pipelines,chemical containers,etc"
+            "featureUtility": "Used for medical devices,cars,bicycles,parts,conveying pipelines,chemical containers,etc",
+            "image": "PP-H"
           },
           {
             "featureName": "PA6 polyamide",
@@ -1067,7 +1106,8 @@
             "productionPriceRange": "--",
             "featureAlternativeName": "none",
             "featureCharacter": "Good damping performance,Good mechanical performance,Good sliding performance,High wear resistance",
-            "featureUtility": "Used for manufacturing structures and sliding components with dynamic loads"
+            "featureUtility": "Used for manufacturing structures and sliding components with dynamic loads",
+            "image": "PA6"
           },
           {
             "featureName": "PE-1000/PE-UHMW polyethylene",
@@ -1075,7 +1115,8 @@
             "productionPriceRange": "--",
             "featureAlternativeName": "none",
             "featureCharacter": "Excellent chemical resistance,Good damping performance,Excellent electrical insulation performance,Can be used at temperatures as low as -270 ° C",
-            "featureUtility": "For applications in the ultra-low temperature range (-200 ° C to -270 ° C)"
+            "featureUtility": "For applications in the ultra-low temperature range (-200 ° C to -270 ° C)",
+            "image": "PE-1000_PE-UHMW"
           },
           {
             "featureName": "PEEK polyether ether ketone",
@@ -1083,7 +1124,8 @@
             "productionPriceRange": "--",
             "featureAlternativeName": "none",
             "featureCharacter": "Extremely high mechanical strength,Very high surface hardness,Excellent wear resistance,High heat load capacity,Excellent chemical resistance,Good radiation resistance,Good machinability",
-            "featureUtility": "For applications with high requirements for mechanical strength,stiffness,and temperature resistance"
+            "featureUtility": "For applications with high requirements for mechanical strength,stiffness,and temperature resistance",
+            "image": "PEEK"
           },
           {
             "featureName": "PE-HD polyethylene",
@@ -1091,7 +1133,8 @@
             "productionPriceRange": "--",
             "featureAlternativeName": "none",
             "featureCharacter": "Good damping performance,Excellent chemical resistance,Excellent electrical insulation performance,Suitable for temperatures up to -50 ° C",
-            "featureUtility": "Used in mechanical,electrical,chemical and other industries"
+            "featureUtility": "Used in mechanical,electrical,chemical and other industries",
+            "image": "PE-HD"
           },
           {
             "featureName": "PET white/black",
@@ -1099,23 +1142,18 @@
             "productionPriceRange": "--",
             "featureAlternativeName": "none",
             "featureCharacter": "Good chemical resistance,High toughness,Very high strength,High stiffness,Good welding and bonding performance,Good sliding and friction performance,Good machinability,Enhanced UV protection (PET black)",
-            "featureUtility": "Used for making fibers,films,engineering plastics,polyester bottles,etc"
+            "featureUtility": "Used for making fibers,films,engineering plastics,polyester bottles,etc",
+            "image": "PET"
           },
-          {
-            "featureName": "PMMA (acrylic glass) polymethyl methacrylate",
-            "pricingRange": "1",
-            "productionPriceRange": "--",
-            "featureAlternativeName": "none",
-            "featureCharacter": "Excellent electrical insulation performance,Light resistant,weather resistant,and radiation resistant,High transparency",
-            "featureUtility": "Used for various products such as aquariums and airplane windows"
-          },
+
           {
             "featureName": "PVDF polyvinylidene fluoride",
             "pricingRange": "4",
             "productionPriceRange": "--",
             "featureAlternativeName": "none",
             "featureCharacter": "Non flammable,Excellent chemical resistance,Light resistance,weather resistance,and radiation resistance,Good electrical insulation performance",
-            "featureUtility": "Thin 30 wire for wire winding circuits and commonly used PVDF insulation for printed circuit boards"
+            "featureUtility": "Thin 30 wire for wire winding circuits and commonly used PVDF insulation for printed circuit boards",
+            "image": "PVDF"
           },
           {
             "featureName": "PTFE polytetrafluoroethylene",
@@ -1123,7 +1161,8 @@
             "productionPriceRange": "--",
             "featureAlternativeName": "none",
             "featureCharacter": "Excellent chemical resistance,Excellent sliding performance,Light resistant,weather resistant,and radiation resistant,Non flammable,Excellent electrical insulation performance",
-            "featureUtility": "The preferred material for corrosion-resistant lining in corrosion-resistant pipelines,fittings,corrugated pipes,pump bodies,valves,and various standard equipment"
+            "featureUtility": "The preferred material for corrosion-resistant lining in corrosion-resistant pipelines,fittings,corrugated pipes,pump bodies,valves,and various standard equipment",
+            "image": "PTFE"
           },
           {
             "featureName": "PVC-U polyvinyl chloride",
@@ -1131,7 +1170,8 @@
             "productionPriceRange": "--",
             "featureAlternativeName": "none",
             "featureCharacter": "Good sliding performance,Excellent chemical resistance,Excellent electrical insulation performance",
-            "featureUtility": "Used for pipeline,cable insulation,flooring,signage,phonograph records,inflatable products,and rubber substitutes"
+            "featureUtility": "Used for pipeline,cable insulation,flooring,signage,phonograph records,inflatable products,and rubber substitutes",
+            "image": "PVC-U"
           },
           {
             "featureName": "PPS GF40",
@@ -1139,7 +1179,8 @@
             "productionPriceRange": "--",
             "featureAlternativeName": "none",
             "featureCharacter": "Excellent chemical resistance,high strength,High hardness,Excellent thermal performance,High resistance to creep",
-            "featureUtility": "Used in chemical equipment,food processing,semiconductors,electrical insulation,and electronics industries"
+            "featureUtility": "Used in chemical equipment,food processing,semiconductors,electrical insulation,and electronics industries",
+            "image": "PPS-GF40"
           },
           {
             "featureName": "PA66 GF30",
@@ -1147,7 +1188,8 @@
             "productionPriceRange": "--",
             "featureAlternativeName": "none",
             "featureCharacter": "Good damping performance,Excellent mechanical performance,Good heat resistance,Not suitable for sliding applications,Good machinability",
-            "featureUtility": "Compared to unreinforced PA,it has better mechanical and thermal performance"
+            "featureUtility": "Compared to unreinforced PA,it has better mechanical and thermal performance",
+            "image": "PA66-GF30"
           },
           {
             "featureName": "POM-C ESD",
@@ -1155,7 +1197,8 @@
             "productionPriceRange": "--",
             "featureAlternativeName": "none",
             "featureCharacter": "Good sliding performance,conductivity ,Prevent static charges,Excellent mechanical performance,Good anti creep properties,Excellent machinability",
-            "featureUtility": "Components for semiconductor and electronic manufacturing equipment"
+            "featureUtility": "Components for semiconductor and electronic manufacturing equipment",
+            "image": "POM-C-ESD"
           }
         ],
         "name": "plastic"
@@ -1170,7 +1213,8 @@
             "productionPriceRange": "1",
             "featureAlternativeName": "DIN CuZn40",
             "featureCharacter": "High strength,high hardness,good plasticity",
-            "featureUtility": "Used for force parts manufactured by deep drawing and bending"
+            "featureUtility": "Used for force parts manufactured by deep drawing and bending",
+            "image": "H62"
           },
           {
             "featureName": "Oxygen free copper TU2",
@@ -1178,7 +1222,8 @@
             "productionPriceRange": "",
             "featureAlternativeName": "C10200",
             "featureCharacter": "High purity,Excellent conductivity and thermal conductivity,Good corrosion resistance",
-            "featureUtility": "Used for electric vacuum devices and instruments"
+            "featureUtility": "Used for electric vacuum devices and instruments",
+            "image": "TU2"
           },
           {
             "featureName": "Purple copper T2",
@@ -1186,7 +1231,8 @@
             "productionPriceRange": "",
             "featureAlternativeName": "C10200",
             "featureCharacter": "Good conductivity and thermal conductivity,Good corrosion resistance",
-            "featureUtility": "Used for conductive,thermal,and corrosion-resistant equipment"
+            "featureUtility": "Used for conductive,thermal,and corrosion-resistant equipment",
+            "image": "T2"
           },
           {
             "featureName": "CuZn39Pb3 Ms58 (bronze)",
@@ -1194,7 +1240,8 @@
             "productionPriceRange": "1",
             "featureAlternativeName": "DIN CuZn39Pb3",
             "featureCharacter": "Excellent sliding performance,highly corrosion-resistant,good machinability",
-            "featureUtility": "Used for machining,etc."
+            "featureUtility": "Used for machining,etc.",
+            "image": "HPb58-2.5"
           },
           {
             "featureName": "Cu-ETP CW004A (electrolytic tough pitch copper with oxygen refined)",
@@ -1202,7 +1249,8 @@
             "productionPriceRange": "2",
             "featureAlternativeName": "DIN-ECu58",
             "featureCharacter": "High conductivity,highly corrosion-resistant,excellent thermal conductivity",
-            "featureUtility": "Used for electrodes in spark erosion and connecting elements in battery systems"
+            "featureUtility": "Used for electrodes in spark erosion and connecting elements in battery systems",
+            "image": "Cu-ETP-CW004A"
           },
           {
             "featureName": "Tin Bronze QSn4-4-4",
@@ -1210,7 +1258,8 @@
             "productionPriceRange": "",
             "featureAlternativeName": "EN CuSn4Pb4Zn4",
             "featureCharacter": "Good wear resistance,Good corrosion resistance,Good processability",
-            "featureUtility": "Used in fields such as ships,chemicals,and machinery."
+            "featureUtility": "Used in fields such as ships,chemicals,and machinery.",
+            "image": "QSn4-4-4"
           },
           {
             "featureName": "CuSn12 CC483K (bronze)",
@@ -1218,7 +1267,8 @@
             "productionPriceRange": "2",
             "featureAlternativeName": "DIN EN 1982-2008",
             "featureCharacter": "Excellent sliding performance,highly corrosion-resistant,wear-resistant",
-            "featureUtility": "Used for machine tool spindle bearings,precision machine tools or components"
+            "featureUtility": "Used for machine tool spindle bearings,precision machine tools or components",
+            "image": "CuSn12"
           },
           {
             "featureName": "CuSn7Zn4Pb7 Rg7 (bronze)",
@@ -1227,7 +1277,8 @@
             "productionPriceRange": "1",
             "featureAlternativeName": "EN 1982-2017",
             "featureCharacter": "Excellent sliding performance,highly corrosion-resistant,excellent emergency operation performance,good machinability",
-            "featureUtility": "Used for sliding bearings and bearing linings in mechanical engineering"
+            "featureUtility": "Used for sliding bearings and bearing linings in mechanical engineering",
+            "image": "CuSn7Zn4Pb7"
           },
           {
             "featureName": "CuSn8 CW453K (bronze)",
@@ -1235,7 +1286,8 @@
             "productionPriceRange": "3",
             "featureAlternativeName": "DIN EN 12163-2016",
             "featureCharacter": "Good sliding performance,highly corrosion-resistant,good spring performance,wear-resistant",
-            "featureUtility": "Used for manufacturing wear-resistant parts and structural parts under medium loads and medium sliding speeds"
+            "featureUtility": "Used for manufacturing wear-resistant parts and structural parts under medium loads and medium sliding speeds",
+            "image": ""
           }
         ],
         "name": "copper"
@@ -1250,7 +1302,8 @@
             "pricingRange": "4",
             "productionPriceRange": "2",
             "featureCharacter": "Good thermal conductivity,excellent wear resistance",
-            "featureUtility": "--"
+            "featureUtility": "--",
+            "image": "0.6025"
           }
         ],
         "name": "hierro"
