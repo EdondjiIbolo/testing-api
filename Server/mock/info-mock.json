@@ -1187,7 +1187,7 @@
             "image": "PE-1000_PE-UHMW"
           },
           {
-            "featureName": "PEEK polyether ether ketone",
+            "featureName": "PEEK polyetheretherketone",
             "pricingRange": "5",
             "productionPriceRange": "--",
             "featureAlternativeName": "none",
@@ -1224,12 +1224,12 @@
             "image": "PVDF"
           },
           {
-            "featureName": "PTFE polytetrafluoroethylene",
+            "featureName": "PTFE polytetra fluoroethylene",
             "pricingRange": "4",
             "productionPriceRange": "--",
             "featureAlternativeName": "none",
-            "featureCharacter": "Excellent chemical resistance, Excellent sliding performance, Light resistant, weather resistant, and radiation resistant, Non flammable, Excellent electrical insulation performance",
-            "featureUtility": "The preferred material for corrosion-resistant lining in corrosion-resistant pipelines, fittings, corrugated pipes, pump bodies, valves, and various standard equipment",
+            "featureCharacter": "Excellent chemical resistance, Light resistant, weather resistant, and radiation resistant, Non flammable, Excellent electrical insulation performance",
+            "featureUtility": "The preferred material for corrosion-resistant lining in corrosion-resistant pipelines, fittings, corrugated pipes, pump bodies, valves",
             "image": "PTFE"
           },
           {
