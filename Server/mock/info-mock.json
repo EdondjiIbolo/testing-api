@@ -816,7 +816,7 @@
             "featureAlternativeName": "EN-10277-3-1999",
             "featureCharacter": "High strength,high hardness,good machinability",
             "featureUtility": "Used for mechanical manufacturing,automation equipment,and high-precision parts manufacturing,etc.",
-            "image": "11SMn309SMn29"
+            "image": "11SMn30"
           },
           {
             "featureName": "S355J2G3",
@@ -842,7 +842,8 @@
             "productionPriceRange": "1$",
             "featureAlternativeName": "EN-10277-2018",
             "featureCharacter": "High wear resistance,good machinability",
-            "featureUtility": "Used for the manufacture of automation equipment,vehicles,machine tools,electronic equipment,and aerospace equipment,etc."
+            "featureUtility": "Used for the manufacture of automation equipment,vehicles,machine tools,electronic equipment,and aerospace equipment,etc.",
+            "image": "11SMnPb37"
           },
           {
             "featureName": "C60E1.1221",
@@ -1287,7 +1288,7 @@
             "featureAlternativeName": "DIN EN 12163-2016",
             "featureCharacter": "Good sliding performance,highly corrosion-resistant,good spring performance,wear-resistant",
             "featureUtility": "Used for manufacturing wear-resistant parts and structural parts under medium loads and medium sliding speeds",
-            "image": ""
+            "image": "CuSn8"
           }
         ],
         "name": "copper"
