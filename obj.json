@@ -1388,5 +1388,600 @@
       ],
       "name": "其他"
     }
+  ],
+  "materialsInfo_ch2": [
+    {
+      "materialName": "铝",
+      "materialFeatures": [
+        {
+          "featureName": "MIC-6",
+          "pricingRange": "2$",
+          "productionPriceRange": "2$",
+          "featureAlternativeName": "none",
+          "featureCharacter": "高强度-易加工-耐腐蚀-焊接性良好",
+          "featureUtility": "用于飞机零件、照相机镜头、耦合器、船舶配件等"
+        },
+        {
+          "featureName": "铝合金 2A12",
+          "pricingRange": "2$",
+          "productionPriceRange": "2$",
+          "featureAlternativeName": "none",
+          "featureCharacter": "高强度-焊接性良好",
+          "featureUtility": "用于飞机骨架、机身,汽车车身、发动机等"
+        },
+        {
+          "featureName": "7075 铝",
+          "pricingRange": "5$",
+          "productionPriceRange": "3$",
+          "featureAlternativeName": "EN AW-7075",
+          "featureCharacter": "高强度-耐腐蚀-加工性能极佳-机械性能良好",
+          "featureUtility": "用于航空航天、模具加工、机械设备、工装夹具"
+        },
+        {
+          "featureName": "6061铝",
+          "pricingRange": "3$",
+          "productionPriceRange": "2$",
+          "featureAlternativeName": "EN AW-6061",
+          "featureCharacter": "高强度-耐腐蚀-高韧性-焊接性良好",
+          "featureUtility": "用于建筑结构、汽车部件等"
+        },
+        {
+          "featureName": "铝合金 6082",
+          "pricingRange": "1$",
+          "productionPriceRange": "1$",
+          "featureAlternativeName": "EN AW-6082",
+          "featureCharacter": "耐腐蚀-焊接性、导热性良好",
+          "featureUtility": "用于交通运输和结构工程工业"
+        },
+        {
+          "featureName": "6060铝",
+          "pricingRange": "3$",
+          "productionPriceRange": "1$",
+          "featureAlternativeName": "EN AW-6060",
+          "featureCharacter": "耐腐蚀-不受气候影响",
+          "featureUtility": "用于灯饰、家具、地板等对强度无特殊要求的工程应用"
+        },
+        {
+          "featureName": "铝合金2007/2030",
+          "pricingRange": "1$",
+          "productionPriceRange": "1$",
+          "featureAlternativeName": "EN AW-2007/2030|AlCuMgPb",
+          "featureCharacter": "耐腐蚀-不受气候影响",
+          "featureUtility": "用于飞机零部件、齿轮和轴、熔丝零件、仪表轴和齿轮等"
+        },
+        {
+          "featureName": "铝合金2017",
+          "pricingRange": "2$",
+          "productionPriceRange": "1$",
+          "featureAlternativeName": "EN AW-2017|AlCuMg1",
+          "featureCharacter": "耐腐蚀-不受气候影响",
+          "featureUtility": "用于铆钉、通用机械零件、运输工具结构件等"
+        },
+        {
+          "featureName": "铝合金 5083",
+          "pricingRange": "2$",
+          "productionPriceRange": "2$",
+          "featureAlternativeName": "EN AW-5083|AlMg4,5Mn0,7",
+          "featureCharacter": "耐腐蚀-天然硬质-焊接性良好-不受气候影响",
+          "featureUtility": "用于汽车、飞机焊接件、钻探设备等"
+        },
+        {
+          "featureName": "铝合金 5754",
+          "pricingRange": "3$",
+          "productionPriceRange": "3$",
+          "featureAlternativeName": "EN AW-5754|AlMg3",
+          "featureCharacter": "耐腐蚀-天然硬质-焊接性良好",
+          "featureUtility": "用于焊接结构、贮槽、压力容器等"
+        },
+        {
+          "featureName": "铝合金7019",
+          "pricingRange": "5$",
+          "productionPriceRange": "2$",
+          "featureAlternativeName": "EN AW-7019|AlZn4Mg2Mn",
+          "featureCharacter": "高强度-耐腐蚀",
+          "featureUtility": "用于 航天航空工业、吹塑（瓶）模、超声波塑焊模具等"
+        },
+        {
+          "featureName": "铝合金 7021",
+          "pricingRange": "5$",
+          "productionPriceRange": "2$",
+          "featureAlternativeName": "nEN AW-7021|AlZn5,5Mg1,5",
+          "featureCharacter": "高强度-耐腐蚀",
+          "featureUtility": "用于制造航空器材、日常生活用品、建筑用门窗等"
+        }
+      ],
+      "name": "Aluminum"
+    },
+
+    {
+      "materialName": "钢",
+      "materialFeatures": [
+        {
+          "featureName": "Q235A",
+          "pricingRange": "2$",
+          "productionPriceRange": "2$",
+          "featureAlternativeName": "DIN S235JR",
+          "featureCharacter": "韧性-塑性-焊接性较好",
+          "featureUtility": "用于各种焊接结构件、普通机械零件等"
+        },
+        {
+          "featureName": "C45",
+          "pricingRange": "2$",
+          "productionPriceRange": "3$",
+          "featureAlternativeName": "none",
+          "featureCharacter": "高强度-易切削加工",
+          "featureUtility": "用于强度要求较高的零件,如齿轮、轴、活塞销等"
+        },
+        {
+          "featureName": "Cr12",
+          "pricingRange": "5$",
+          "productionPriceRange": "3$",
+          "featureAlternativeName": "钢 1.2080|DIN x210Cr12",
+          "featureCharacter": "淬透性较好-耐磨性良好",
+          "featureUtility": "用于高耐磨的冷冲模及冲头 、冷切剪刀、钻套等"
+        },
+        {
+          "featureName": "16CrMnH",
+          "pricingRange": "3$",
+          "productionPriceRange": "3$",
+          "featureAlternativeName": "EN 10084-2008",
+          "featureCharacter": "淬透性-切削性较好",
+          "featureUtility": "经渗碳淬火后使用,主要用于制造齿轮、蜗杆、密封轴套等"
+        },
+        {
+          "featureName": "42CrMoS4",
+          "pricingRange": "4$",
+          "productionPriceRange": "4$",
+          "featureAlternativeName": "EN 683-2-2018 ",
+          "featureCharacter": "高强度-韧性-淬透性较好",
+          "featureUtility": "用于机车牵引用的大齿轮、增压器传动齿轮、载荷极大的连杆等"
+        },
+        {
+          "featureName": "11SMn309SMn29",
+          "pricingRange": "1$",
+          "productionPriceRange": "1$",
+          "featureAlternativeName": "EN 10277-3-1999",
+          "featureCharacter": "高强度-高硬度-加工性能良好",
+          "featureUtility": "用于机械制造、自动化设备和高精度零件制造等"
+        },
+        {
+          "featureName": "S355J2G3",
+          "pricingRange": "2$",
+          "productionPriceRange": "2$",
+          "featureAlternativeName": "EN 10025-2",
+          "featureCharacter": "耐腐蚀-高强度-韧性-塑性-焊接性良好",
+          "featureUtility": "用于重型机械设备、矿山机械"
+        },
+        {
+          "featureName": "S355JRSt 52",
+          "pricingRange": "1$",
+          "productionPriceRange": "2$",
+          "featureAlternativeName": "EN 10025",
+          "featureCharacter": "高强度-耐腐蚀-高屈服强度-高抗拉强度",
+          "featureUtility": "用于支撑结构、船舶外壳、船用设备等"
+        },
+        {
+          "featureName": "11SMnPb379SMnPb36",
+          "pricingRange": "1$",
+          "productionPriceRange": "1$",
+          "featureAlternativeName": "EN 10277-2018",
+          "featureCharacter": "高耐磨性-加工性能良好",
+          "featureUtility": "用于自动化设备、车辆、机床、电子设备和航空航天设备制造等"
+        },
+        {
+          "featureName": "C60E1.1221",
+          "pricingRange": "3$",
+          "productionPriceRange": "3$",
+          "featureAlternativeName": "EN-10132-4",
+          "featureCharacter": "高强度-高硬度-高弹性",
+          "featureUtility": "用于制造需要高强度、硬度和耐磨性的机械零件,例如轴、销、齿轮、螺栓等"
+        },
+        {
+          "featureName": "Q235B",
+          "pricingRange": "1$",
+          "productionPriceRange": "2$",
+          "featureAlternativeName": "DIN S235JRG1",
+          "featureCharacter": "高强度-高韧性-加工性能优异",
+          "featureUtility": "用于船舶、车辆结构件、制造各种工具、 刃具 、模具和量具等"
+        },
+        {
+          "featureName": "高碳铬轴承钢GCr15",
+          "pricingRange": "1$",
+          "productionPriceRange": "1$",
+          "featureAlternativeName": "none",
+          "featureCharacter": "高强度-高硬度-耐磨性-热加工性能良好",
+          "featureUtility": "用于制造内燃机、电机车、机床、钻探机、以及矿山机械等传动轴上的钢球、滚子和轴套等"
+        }
+      ],
+      "name": "steel"
+    },
+
+    {
+      "materialName": "不锈钢",
+      "materialFeatures": [
+        {
+          "featureName": "不锈钢 1.4571",
+          "pricingRange": "5$",
+          "productionPriceRange": "4$",
+          "featureAlternativeName": "EN 316Ti|X6CrNiMoTi17-12-2 ",
+          "featureCharacter": "耐腐蚀,机械加工性能良好,注：不能通过热处理硬化",
+          "featureUtility": "用于制造焊接部件等"
+        },
+        {
+          "featureName": "不锈钢 1.4301",
+          "pricingRange": "2$",
+          "productionPriceRange": "3$",
+          "featureAlternativeName": "EN X5CrNi18-10",
+          "featureCharacter": " 耐热,耐腐蚀,耐低温,机械加工性能良好",
+          "featureUtility": "用于食品用设备,一般化工设备,原子能工业等"
+        },
+        {
+          "featureName": "不锈钢 1.4305",
+          "pricingRange": "3$",
+          "productionPriceRange": "2$",
+          "featureAlternativeName": "EN X8CrNiS18-9",
+          "featureCharacter": " 非磁性,机械加工性能优异,注：耐腐蚀性低不可焊接",
+          "featureUtility": "用于机械加工"
+        },
+        {
+          "featureName": "不锈钢 1.4112",
+          "pricingRange": "5$",
+          "productionPriceRange": "3$",
+          "featureAlternativeName": "EN X90CrMoV18",
+          "featureCharacter": " 可磁化,耐腐蚀,机械加工性能优异",
+          "featureUtility": "用于刀具、机械零部件、化工设备、医疗器械制造等"
+        },
+        {
+          "featureName": "不锈钢 1.4104",
+          "pricingRange": "5$",
+          "productionPriceRange": "3$",
+          "featureAlternativeName": "EN X14CrMoS17",
+          "featureCharacter": " 可磁化,耐腐蚀,机械加工性能优异",
+          "featureUtility": "用于制造各种机器零件"
+        },
+        {
+          "featureName": "不锈钢1.4841",
+          "pricingRange": "5$",
+          "productionPriceRange": "5$",
+          "featureAlternativeName": "EN X6CrNiMoTi17-12-2",
+          "featureCharacter": " 非磁性,耐热,焊接性良好,1150°下具有良好的强度性能,650°下具有良好的耐腐蚀性",
+          "featureUtility": "用于石油、天然气和化工行业中的高温设备"
+        },
+        {
+          "featureName": "不锈钢1.4542",
+          "pricingRange": "3$",
+          "productionPriceRange": "4$",
+          "featureAlternativeName": "EN X5CrNiCuNb16-4",
+          "featureCharacter": " 可硬化,耐腐蚀,硬度良好",
+          "featureUtility": "用于制造医疗部件、一般机械、汽车仪器等"
+        },
+        {
+          "featureName": "不锈钢 1.4404",
+          "pricingRange": "4$",
+          "productionPriceRange": "4$",
+          "featureAlternativeName": "EN X2CrNiMo17-12-2",
+          "featureCharacter": " 耐腐蚀,可焊接性良好",
+          "featureUtility": "用于化学工业"
+        },
+        {
+          "featureName": "不锈钢 1.4057",
+          "pricingRange": "5$",
+          "productionPriceRange": "3$",
+          "featureAlternativeName": "EN X17CrNi16-2",
+          "featureCharacter": " 高强度,耐腐蚀,焊接性良好",
+          "featureUtility": "用于制造高强度、韧性和耐蚀性的零部件,及潮湿环境中工作的承力部件"
+        },
+        {
+          "featureName": "不锈钢420",
+          "pricingRange": "3$",
+          "productionPriceRange": "2$",
+          "featureAlternativeName": "EN X20Cr13",
+          "featureCharacter": " 耐腐蚀,高耐磨性,机械加工性能优异",
+          "featureUtility": "用于化学工业、食品加工设备等"
+        },
+        {
+          "featureName": "不锈钢430",
+          "pricingRange": "2$",
+          "productionPriceRange": "2$",
+          "featureAlternativeName": "EN X6Cr17",
+          "featureCharacter": " 耐腐蚀,导热性能良好",
+          "featureUtility": "用于燃油、烧嘴部件、家庭用器具、家电部件"
+        },
+        {
+          "featureName": "不锈钢316",
+          "pricingRange": "2$",
+          "productionPriceRange": "32$",
+          "featureAlternativeName": "EN X5CrNiMo17-12-2",
+          "featureCharacter": "  耐腐蚀,耐高温",
+          "featureUtility": "用于螺栓、螺母、水下设备、化学、染料等生产设备"
+        }
+      ],
+      "name": "stainless-steel"
+    },
+
+    {
+      "materialName": "工具钢",
+      "materialFeatures": [
+        {
+          "featureName": "1.173",
+          "featureAlternativeName": "C45U",
+          "pricingRange": "2$",
+          "productionPriceRange": "1$",
+          "featureCharacter": "耐磨,机械加工性能良好",
+          "featureUtility": "用于需要坚硬表面和坚韧芯材的应用"
+        },
+        {
+          "featureName": "1.2083",
+          "featureAlternativeName": "X40Cr14",
+          "pricingRange": "3$",
+          "productionPriceRange": "4$",
+          "featureCharacter": "耐磨",
+          "featureUtility": "用于制造腐蚀性塑料的模具"
+        },
+        {
+          "featureName": "1.221",
+          "featureAlternativeName": "115CrV3",
+          "pricingRange": "4$",
+          "productionPriceRange": "2$",
+          "featureCharacter": "易加工,耐磨,高强度,高硬度",
+          "featureUtility": "用于强度、硬度要求较高的部件"
+        },
+        {
+          "featureName": "1.2312",
+          "featureAlternativeName": "40CrMnMoS8-6",
+          "pricingRange": "3$",
+          "productionPriceRange": "3$",
+          "featureCharacter": "氮化性能良好,机械加工性能良好,耐磨,注：抛光性和蚀刻性有限",
+          "featureUtility": "用于工具和模具制造"
+        },
+        {
+          "featureName": "1.2379",
+          "featureAlternativeName": " X153CrMoV12",
+          "pricingRange": "4$",
+          "productionPriceRange": "4$",
+          "featureCharacter": "高耐磨性,高强度,高硬度",
+          "featureUtility": "用于制造工具"
+        },
+        {
+          "featureName": "1.2842",
+          "featureAlternativeName": " 90MnCrV8",
+          "pricingRange": "3$",
+          "productionPriceRange": "4$",
+          "featureCharacter": "高耐磨性,高硬度",
+          "featureUtility": "用于包括模具、冲压工具、拉丝冲头、拉刀、衬套、车床、卡盘爪"
+        },
+        {
+          "featureName": "1.3505",
+          "featureAlternativeName": " 100Cr6",
+          "pricingRange": "3$",
+          "productionPriceRange": "3$",
+          "featureCharacter": "高耐磨性,高硬度",
+          "featureUtility": "用于机械工程中易磨损的零件"
+        }
+      ],
+      "name": "tool"
+    },
+
+    {
+      "materialName": "塑料",
+      "materialFeatures": [
+        {
+          "featureName": "PC 聚碳酸酯",
+          "pricingRange": "4$",
+          "productionPriceRange": "--",
+          "featureAlternativeName": "none",
+          "featureCharacter": " 尺寸稳定性优异,电绝缘性能良好,机械加工性良好,吸水率低,不适合滑动应用",
+          "featureUtility": "用于制造大型灯罩、防护玻璃、光学仪器的左右目镜筒等"
+        },
+        {
+          "featureName": "POM 聚甲醛",
+          "pricingRange": "2$",
+          "productionPriceRange": "--",
+          "featureAlternativeName": "none",
+          "featureCharacter": " 机械性能优异,滑动性能优异,抗蠕变性良好,机械加工性优异",
+          "featureUtility": "用于干摩擦应用"
+        },
+        {
+          "featureName": "亚克力",
+          "pricingRange": "3$",
+          "productionPriceRange": "--",
+          "featureAlternativeName": "none",
+          "featureCharacter": " 高硬度,高透明度",
+          "featureUtility": "用于亚克力灯箱、广告招牌等"
+        },
+        {
+          "featureName": "PP-H 聚丙烯",
+          "pricingRange": "1$",
+          "productionPriceRange": "--",
+          "featureAlternativeName": "none",
+          "featureCharacter": "耐化学性良好,电绝缘性能优异",
+          "featureUtility": "用于医疗器械、汽车、自行车、零件、输送管道、化工容器等"
+        },
+        {
+          "featureName": "PA6 聚酰胺",
+          "pricingRange": "2$",
+          "productionPriceRange": "--",
+          "featureAlternativeName": "none",
+          "featureCharacter": "阻尼性能良好,机械性能良好,滑动性能良好,高耐磨性",
+          "featureUtility": "用于制造具有动态载荷的结构和滑动元件"
+        },
+        {
+          "featureName": "PE-1000/PE-UHMW 聚乙烯",
+          "pricingRange": "2$",
+          "productionPriceRange": "--",
+          "featureAlternativeName": "none",
+          "featureCharacter": " 耐化学性优异,阻尼性能良好,电绝缘性能优异,可在低至 -270 °C 的温度下使用",
+          "featureUtility": "用于超低温范围(-200°C 至 -270°C)的应用"
+        },
+        {
+          "featureName": "PEEK 聚醚醚酮",
+          "pricingRange": "5$",
+          "productionPriceRange": "--",
+          "featureAlternativeName": "none",
+          "featureCharacter": "非常高的机械强度,非常高的表面硬度,耐磨性优异,高热负荷能力,耐化学性优异,抗辐射性良好,机械加工性良好",
+          "featureUtility": "用于机械强度、刚度和耐温性要求高的应用"
+        },
+        {
+          "featureName": "PE-HD 聚乙烯",
+          "pricingRange": "1$",
+          "productionPriceRange": "--",
+          "featureAlternativeName": "none",
+          "featureCharacter": "阻尼性能良好,耐化学性优异,电绝缘性能优异,适用温度高达-50°C",
+          "featureUtility": "用于机械、电力、化工等行业"
+        },
+        {
+          "featureName": "PET 白/黑色",
+          "pricingRange": "2$",
+          "productionPriceRange": "--",
+          "featureAlternativeName": "none",
+          "featureCharacter": "耐化学性良好,高韧性,非常高的强度,高刚度,焊接和粘接性能良好,滑动和摩擦性能良好,机械加工性良好,增强的紫外线防护（PET黑）",
+          "featureUtility": "用于做纤维、薄膜、工程塑料、聚酯瓶等"
+        },
+
+        {
+          "featureName": "PVDF 聚偏二氟乙烯",
+          "pricingRange": "2$",
+          "productionPriceRange": "--",
+          "featureAlternativeName": "none",
+          "featureCharacter": "不易燃,耐化学性优异,耐光、耐候和耐辐射,电绝缘性能良好",
+          "featureUtility": "用于绕线电路的细30号线以及印刷电路板常用PVDF绝缘"
+        },
+        {
+          "featureName": "PTFE 聚四氟乙烯",
+          "pricingRange": "4$",
+          "productionPriceRange": "--",
+          "featureAlternativeName": "none",
+          "featureCharacter": "耐化学性优异,滑动性能优异,耐光、耐候、耐辐射,不易燃,电绝缘性能优异",
+          "featureUtility": "用于耐腐蚀管道、管件、波纹管、泵体、阀门和各类标准设备的耐腐蚀衬里首选材料"
+        },
+        {
+          "featureName": "PVC-U 聚氯乙烯",
+          "pricingRange": "5$",
+          "productionPriceRange": "--",
+          "featureAlternativeName": "none",
+          "featureCharacter": "滑动性能良好,耐化学性优异,电绝缘性能优异",
+          "featureUtility": "用于管道、电缆绝缘、地板、标牌、留声机唱片、充气产品和橡胶替代品"
+        },
+        {
+          "featureName": "PPS GF40",
+          "pricingRange": "5$",
+          "productionPriceRange": "--",
+          "featureAlternativeName": "none",
+          "featureCharacter": " 耐化学性优异,高强度,高硬度,热性能优异,高抗蠕变性",
+          "featureUtility": "用于化工设备、食品加工、半导体、电气绝缘和电子工业"
+        },
+        {
+          "featureName": "PA66 GF30",
+          "pricingRange": "3$",
+          "productionPriceRange": "--",
+          "featureAlternativeName": "none",
+          "featureCharacter": " 阻尼性能良好,机械性能优异,耐热性良好,不适合滑动应用,机械加工性良好",
+          "featureUtility": "与未增强的 PA 相比,具有更好的机械和热性能"
+        },
+        {
+          "featureName": "POM-C ESD",
+          "pricingRange": "2$",
+          "productionPriceRange": "--",
+          "featureAlternativeName": "none",
+          "featureCharacter": " 滑动性能良好,电导率,防止静电荷,机械性能优异,抗蠕变性良好,机械加工性优异",
+          "featureUtility": "用于半导体和电子制造设备的组件"
+        }
+      ],
+      "name": "plastic"
+    },
+
+    {
+      "materialName": "铜",
+      "materialFeatures": [
+        {
+          "featureName": "黄铜H62",
+          "pricingRange": "1$",
+          "productionPriceRange": "1$",
+          "featureAlternativeName": "DIN CuZn40",
+          "featureCharacter": "高强度,高硬度,塑性良好",
+          "featureUtility": "用于各种深拉深和弯折制造的受力零件"
+        },
+        {
+          "featureName": "无氧铜TU2",
+          "pricingRange": "$",
+          "productionPriceRange": "$",
+          "featureAlternativeName": "C10200",
+          "featureCharacter": "纯度高,导电、导热性优异,耐腐蚀性较好",
+          "featureUtility": "用于电真空器件和仪器、仪表"
+        },
+        {
+          "featureName": "紫铜T2",
+          "pricingRange": "$",
+          "productionPriceRange": "$",
+          "featureAlternativeName": "C11000",
+          "featureCharacter": "导电、导热性较好,耐腐蚀性较好",
+          "featureUtility": "用于导电、导热、耐蚀器材"
+        },
+        {
+          "featureName": "HPb58-2.5Ms58 (青铜)",
+          "pricingRange": "3$",
+          "productionPriceRange": "1$",
+          "featureAlternativeName": "DIN CuZn39Pb3",
+          "featureCharacter": "滑动性能优异,非常耐腐蚀,机械加工性优异",
+          "featureUtility": "用于机械加工等"
+        },
+        {
+          "featureName": "Cu-ETP CW004A (电解精炼含氧铜)",
+          "pricingRange": "4$",
+          "productionPriceRange": "2$",
+          "featureAlternativeName": "DIN ECu58",
+          "featureCharacter": "高导电性,非常耐腐蚀,导热性能优异",
+          "featureUtility": "用于火花腐蚀的电极和电池系统中的连接元件"
+        },
+        {
+          "featureName": "锡青铜QSn4-4-4",
+          "pricingRange": "$",
+          "productionPriceRange": "$",
+          "featureAlternativeName": "CuSn4Pb4Zn4",
+          "featureCharacter": "耐磨性较好,耐腐蚀性较好,可加工性良好",
+          "featureUtility": "用于船舶、化工和机械等领域"
+        },
+        {
+          "featureName": "CuSn12 CC483K (青铜)",
+          "pricingRange": "3$",
+          "productionPriceRange": "2$",
+          "featureAlternativeName": "EN 1982-2008",
+          "featureCharacter": "滑动性能优异,非常耐腐蚀,耐磨",
+          "featureUtility": "用以机床主轴轴承,精密机床或零部件"
+        },
+        {
+          "featureName": "CuSn7Zn4Pb7 Rg7 (青铜)",
+          "pricingRange": "4$",
+          "productionPriceRange": "1$",
+          "featureAlternativeName": "EN 1982-2017",
+          "featureCharacter": "滑动性能优异,非常耐腐蚀,紧急运行性能优异,机械加工性较好",
+          "featureUtility": "用于机械工程的滑动轴承和轴承衬套"
+        },
+        {
+          "featureName": "CuSn8 CW453K (青铜)",
+          "pricingRange": "4$",
+          "productionPriceRange": "3$",
+          "featureAlternativeName": "DIN EN 12163-2016",
+          "featureCharacter": "滑动性能良好,非常耐腐蚀,弹簧性能较好,耐磨",
+          "featureUtility": "用于制造在中等载荷和中等滑动速度下的耐磨零件和结构零件"
+        }
+      ],
+      "name": "copper"
+    },
+
+    {
+      "materialName": "铸铁",
+      "materialFeatures": [
+        {
+          "featureName": "铸铁 0.6025",
+          "featureAlternativeName": "EN-GJL-250",
+          "pricingRange": "4$",
+          "productionPriceRange": "2$",
+          "featureCharacter": "导热性良好,耐磨性优异",
+          "featureUtility": "--"
+        }
+      ],
+      "name": "hierro"
+    }
   ]
 }
