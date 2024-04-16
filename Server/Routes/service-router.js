@@ -19,6 +19,8 @@ serviceRouter.post("/verify", ServiceController.SendVerificationCode);
 serviceRouter.post("/sign-up", ServiceController.signAccountUser);
 serviceRouter.post("/message-contact", ServiceController.newMessage);
 serviceRouter.post("/recover", ServiceController.recoverPassword);
+serviceRouter.post("/account-setting", ServiceController.AccountSetting);
+serviceRouter.post("/account-info", ServiceController.getUserInfo);
 ////
 serviceRouter.post("/order", ServiceController.updateStatus);
 

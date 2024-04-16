@@ -42,6 +42,29 @@ export class ServiceController {
       .status(200)
       .json({ message: "Password have changed successfully" });
   }
+  static async getUserInfo(req, res) {
+    const { email } = req.query;
+    const result = ServiceModel.getUserInfo({ email });
+    if (!result) {
+      return res
+        .status(400)
+        .json({ error: "Error al actualizar la informacion" });
+    }
+    return res.status(201).json({ message: "Datos cambiados correctamente" });
+  }
+  static async AccountSetting(req, res) {
+    const validateData = validateUserlogin(req.body);
+    if (validateData.error) {
+      return res.status(400).json({ error: validateData.error.message });
+    }
+    const { phone, password } = validateData.data;
+    const data = await ServiceModel.AccountSetting({ phone, password });
+
+    if (data.token) return res.status(200).json(data);
+    return res.status(401).json({
+      error: "invalid user or password",
+    });
+  } //DONE
   static async logInUser(req, res) {
     const validateData = validateUserlogin(req.body);
     if (validateData.error) {

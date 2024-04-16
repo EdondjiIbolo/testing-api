@@ -74,6 +74,45 @@ export class ServiceModel {
       return { err };
     }
   }
+  static async getUserInfo({ email }) {
+    try {
+      const [getUser, row] = await connection.query(
+        "SELECT * FROM usuarios WHERE email = ?",
+        [email]
+      );
+      const [user] = getUser;
+      if (!user.id) {
+        throw new Error("User Not found");
+      }
+      return user;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  static async AccountSetting({ phone, password }) {
+    try {
+      const [querdata, _] = await connection.query(
+        "SELECT * FROM usuarios WHERE phone = ? ",
+        [phone]
+      );
+
+      if (response.length <= 0) {
+        throw new Error("User not found");
+      }
+      const updatePassword = await connection.query(
+        "UPDATE usuarios SET password = ?  WHERE phone = ?",
+        [password, phone]
+      );
+      if (updateResult.affectedRows === 0) {
+        throw new Error("Failed to update password");
+      }
+
+      return data;
+    } catch (err) {
+      console.log(err);
+      return err;
+    }
+  }
   static async logInUser({ phone, password }) {
     console.log("hola");
     try {
