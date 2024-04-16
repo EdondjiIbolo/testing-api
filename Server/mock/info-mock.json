@@ -163,7 +163,17 @@
             "image": "7021"
           }
         ],
-        "name": "Aluminum"
+        "name": "Aluminum",
+        "finishing": [
+          "喷粉",
+          "喷涂特氟龙",
+          "阳极氧化",
+          "镀镍",
+          "抛光",
+          "电解抛光",
+          "丝印",
+          "喷砂"
+        ]
       },
 
       {
@@ -278,7 +288,22 @@
             "image": "GCr15"
           }
         ],
-        "name": "steel"
+        "name": "steel",
+        "finishing": [
+          "喷粉",
+          "镀锌",
+          "镀锡",
+          "镀镍",
+          "发黑",
+          "磷化",
+          "退火",
+          "淬火",
+          "回火",
+          "渗氮",
+          "碳氮共渗",
+          "抛光",
+          "喷砂"
+        ]
       },
 
       {
@@ -392,7 +417,8 @@
             "image": "316"
           }
         ],
-        "name": "stainless-steel"
+        "name": "stainless-steel",
+        "finishing": ["喷粉", "镀锌", "镀镍", "发黑", "抛光", "拉丝"]
       },
 
       {
@@ -462,7 +488,8 @@
             "image": "1.3505"
           }
         ],
-        "name": "tool"
+        "name": "tool",
+        "finishing": ["发黑", "退火", "淬火", "回火", "抛光"]
       },
 
       {
@@ -605,7 +632,8 @@
             "image": "POM-C-ESD"
           }
         ],
-        "name": "plastic"
+        "name": "plastic",
+        "finishing": ["喷砂", "喷涂特氟龙", "镭雕"]
       },
 
       {
@@ -693,7 +721,8 @@
             "image": "CuSn8"
           }
         ],
-        "name": "copper"
+        "name": "copper",
+        "finishing": ["喷砂", "抛光"]
       },
 
       {
@@ -709,7 +738,8 @@
             "image": "0.6025"
           }
         ],
-        "name": "hierro"
+        "name": "hierro",
+        "finishing": ["喷砂"]
       }
     ],
     "materialsInfo_en": [
@@ -825,7 +855,17 @@
             "image": "7021"
           }
         ],
-        "name": "Aluminum"
+        "name": "Aluminum",
+        "finishing": [
+          "Powder spray painting",
+          "Spraying Teflon",
+          "Oxidation",
+          "Nickel Plating",
+          "Polishing",
+          "Electrolytic polishing",
+          "Silk screen printing",
+          "Sandblasting"
+        ]
       },
 
       {
@@ -940,7 +980,22 @@
             "image": "GCr15"
           }
         ],
-        "name": "steel"
+        "name": "steel",
+        "finishing": [
+          "Powder spray painting",
+          "Galvanizing",
+          "Tin plating",
+          "Nickel Plating",
+          "Blackening",
+          "Phosphating",
+          "Annealing",
+          "Quenching",
+          "Tempering",
+          "Nitriding",
+          "Carbon nitrogen co infiltration",
+          "Polishing",
+          "Sandblasting"
+        ]
       },
 
       {
@@ -1056,7 +1111,15 @@
             "image": "316"
           }
         ],
-        "name": "stainless-steel"
+        "name": "stainless-steel",
+        "finishing": [
+          "Powder spray painting",
+          "Galvanizing",
+          "Nickel plating",
+          "Blackening",
+          "Polishing",
+          "Wire drawing"
+        ]
       },
 
       {
@@ -1126,7 +1189,14 @@
             "image": "1.3505"
           }
         ],
-        "name": "tool"
+        "name": "tool",
+        "finishing": [
+          "Blackening",
+          "Annealing",
+          "Quenching",
+          "Tempering",
+          "Polishing"
+        ]
       },
 
       {
@@ -1269,7 +1339,8 @@
             "image": "POM-C-ESD"
           }
         ],
-        "name": "plastic"
+        "name": "plastic",
+        "finishing": ["Sandblasting", "Spraying Teflon", "Laser carving"]
       },
 
       {
@@ -1358,7 +1429,8 @@
             "image": "CuSn8"
           }
         ],
-        "name": "copper"
+        "name": "copper",
+        "finishing": ["Sandblasting", "Polishing"]
       },
 
       {
@@ -1374,7 +1446,8 @@
             "image": "0.6025"
           }
         ],
-        "name": "hierro"
+        "name": "hierro",
+        "finishing": ["Sandblasting"]
       }
     ],
     "finishingsInfo_en": [
