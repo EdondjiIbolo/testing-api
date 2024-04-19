@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { ServiceController } from "../Controller/service.js";
 import multer from "multer";
+import { AuthMiddleware } from "../Middleware/auth.js";
 
 const PORT = process.env.PORT || 3000;
 
@@ -19,12 +20,20 @@ serviceRouter.post("/verify", ServiceController.SendVerificationCode);
 serviceRouter.post("/sign-up", ServiceController.signAccountUser);
 serviceRouter.post("/message-contact", ServiceController.newMessage);
 serviceRouter.post("/recover", ServiceController.recoverPassword);
-serviceRouter.post("/account-setting", ServiceController.AccountSetting);
-serviceRouter.get("/account-info", ServiceController.getUserInfo);
-////
+
+///
+serviceRouter.post(
+  "/account-setting",
+  AuthMiddleware,
+  ServiceController.AccountSetting
+);
+serviceRouter.get(
+  "/account-info",
+  AuthMiddleware,
+  ServiceController.getUserInfo
+);
 serviceRouter.post("/order", ServiceController.updateStatus);
 
-/////
 //Assistant
 
 serviceRouter.post("/update-part-status", ServiceController.updatemachine);

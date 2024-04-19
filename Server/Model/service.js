@@ -79,28 +79,30 @@ export class ServiceModel {
       console.log(error);
     }
   }
-  static async AccountSetting({ phone, password }) {
+  static async AccountSetting({ info, email }) {
+    const { name, surename, password } = info;
+
     try {
       const [querdata, _] = await connection.query(
-        "SELECT * FROM usuarios WHERE phone = ? ",
-        [phone]
+        "SELECT * FROM usuarios WHERE email = ? ",
+        [email]
       );
 
-      if (response.length <= 0) {
+      if (querdata.length <= 0) {
         throw new Error("User not found");
       }
       const updatePassword = await connection.query(
-        "UPDATE usuarios SET password = ?  WHERE phone = ?",
-        [password, phone]
+        "UPDATE usuarios SET password = ? , name = ?, surename=? WHERE email = ?",
+        [password, name, surename, email]
       );
-      if (updateResult.affectedRows === 0) {
+      if (updatePassword.affectedRows === 0) {
         throw new Error("Failed to update password");
       }
 
-      return data;
+      return updatePassword;
     } catch (err) {
       console.log(err);
-      return err;
+      return { err };
     }
   }
   static async logInUser({ phone, password }) {
@@ -259,12 +261,12 @@ export class ServiceModel {
     }
   }
   static async ShippingPrice({ id, info }) {
-    const { status, shipping_price } = info;
+    const { status, status_message } = info;
     const quoteId = id.id;
     try {
       const [quotes, _] = await connection.query(
-        "UPDATE  orders  set shipping_price=? , status=? where id = ?",
-        [shipping_price, status, quoteId]
+        "UPDATE  orders  set status_message=? , status=? where id = ?",
+        [status_message, status, quoteId]
       );
 
       return { quotes };
@@ -355,7 +357,22 @@ export class ServiceModel {
       return { err };
     }
   }
-  static async Assistantquote() {
+  static async Assistantquote({ email }) {
+    try {
+      const [verufyUser, _] = await connection.query(
+        "SELECT * FROM usuarios WHERE email =?",
+        [email]
+      );
+      const [user] = verufyUser;
+      console.log(user);
+      if (user.rol_id !== 1) {
+        throw new Error("Unauthorized , Frobidden Page");
+      }
+    } catch (err) {
+      console.log(err);
+      return { err };
+    }
+
     try {
       const [quotes, _] = await connection.query(
         "SELECT orders.*, usuarios.name, usuarios.phone, COUNT(files.id) AS total_parts FROM orders JOIN usuarios ON usuarios.id = orders.user_id LEFT JOIN  files ON files.order_id = orders.id WHERE orders.status = 'waiting' OR  orders.status = 'quoted' OR orders.status = null GROUP BY orders.id, usuarios.id, usuarios.name, usuarios.phone ORDER BY orders.date ASC"
@@ -364,7 +381,7 @@ export class ServiceModel {
       return { quotes };
     } catch (err) {
       console.log(err);
-      return err;
+      return { err };
     }
   }
   static async UpdatePrice({ price, id }) {

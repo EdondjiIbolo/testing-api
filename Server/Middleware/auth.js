@@ -1,8 +1,8 @@
 import jwt from "jsonwebtoken";
-export const Auth = async (req, res, next) => {
+export const AuthMiddleware = async (req, res, next) => {
   // Obtén el token del header de autorización
   const authHeader = req.header("Authorization");
-
+  console.log(req.header("Authorization"));
   // Verifica si hay un encabezado de autorización
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
     return res
@@ -16,7 +16,7 @@ export const Auth = async (req, res, next) => {
 
     // Verifica y decodifica el token
     const decoded = await jwt.verify(token, "1234"); // Reemplaza 'tu_secreto' con tu propia clave secreta
-
+    console.log(decoded);
     // Asigna el usuario decodificado al objeto de solicitud para que esté disponible en rutas protegidas
     req.user = decoded.user;
 

@@ -52,16 +52,17 @@ export class ServiceController {
     return res.status(201).json(result);
   }
   static async AccountSetting(req, res) {
-    const validateData = validateUserlogin(req.body);
-    if (validateData.error) {
-      return res.status(400).json({ error: validateData.error.message });
-    }
-    const { phone, password } = validateData.data;
-    const data = await ServiceModel.AccountSetting({ phone, password });
+    const info = req.body;
+    const { email } = req.query;
 
-    if (data.token) return res.status(200).json(data);
-    return res.status(401).json({
-      error: "invalid user or password",
+    const data = await ServiceModel.AccountSetting({ info, email });
+    if (data?.err) {
+      return res.status(401).json({
+        error: "invalid user or password",
+      });
+    }
+    return res.status(200).json({
+      message: "Updated Successfully",
     });
   } //DONE
   static async logInUser(req, res) {
@@ -170,10 +171,11 @@ export class ServiceController {
     return res.status(200).json(result);
   }
   static async Assistantquote(req, res) {
-    const quotes = await ServiceModel.Assistantquote();
+    const { email } = req.query;
+    const quotes = await ServiceModel.Assistantquote({ email });
 
-    if (!quotes) {
-      return res.status(400).json({ error: "error al recibir los datos" });
+    if (quotes?.err) {
+      return res.status(401).json({ error: quotes?.err });
     }
 
     return res.status(200).json(quotes);
