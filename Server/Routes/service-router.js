@@ -26,7 +26,7 @@ serviceRouter.post("/order", ServiceController.updateStatus);
 
 /////
 //Assistant
-serviceRouter.post("/assistant-changes", ServiceController.AssistantChange);
+
 serviceRouter.post("/update-part-status", ServiceController.updatemachine);
 serviceRouter.post("/update-price", ServiceController.UpdatePrice);
 serviceRouter.get("/assistant-quote", ServiceController.Assistantquote);
@@ -44,7 +44,7 @@ serviceRouter.get("/download-file", ServiceController.DonwloadFile);
 //end point de abajo -> price update
 serviceRouter.get("/customer-quote", ServiceController.Userquote);
 serviceRouter.post("/send-quote", ServiceController.Sendquote);
-serviceRouter.post("/update-order", ServiceController.Quoteupdate);
+serviceRouter.post("/update-order", ServiceController.QuoteRequest);
 
 serviceRouter.get("/file/:id", ServiceController.ReceiveFile);
 serviceRouter.get("/quote", ServiceController.SingleQuote);
@@ -57,7 +57,7 @@ serviceRouter.get("/customers-orders", ServiceController.CustomerQuotes);
 serviceRouter.patch(
   "/update-file",
   upload.array("files"),
-  ServiceController.UpdateQuote
+  ServiceController.UpdateQuoteFile
 );
 serviceRouter.post(
   "/new-quote",

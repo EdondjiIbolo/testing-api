@@ -4,6 +4,7 @@ const ACCEPTED_ORIGINS = [
   "https://dachuan-router.vercel.app/",
   "http://localhost:5173",
   "http://localhost:5174",
+  "https://unrivaled-bunny-861cc8.netlify.app/",
 ];
 
 export const corsMiddleware = ({ accepted_origins = ACCEPTED_ORIGINS } = {}) =>

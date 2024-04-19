@@ -44,13 +44,12 @@ export class ServiceController {
   }
   static async getUserInfo(req, res) {
     const { email } = req.query;
-    const result = ServiceModel.getUserInfo({ email });
+
+    const result = await ServiceModel.getUserInfo({ email });
     if (!result) {
-      return res
-        .status(400)
-        .json({ error: "Error al actualizar la informacion" });
+      return res.status(400).json({ error: "Error al recibir los datos" });
     }
-    return res.status(201).json({ message: "Datos cambiados correctamente" });
+    return res.status(201).json(result);
   }
   static async AccountSetting(req, res) {
     const validateData = validateUserlogin(req.body);
@@ -142,19 +141,7 @@ export class ServiceController {
     return res.status(200).json(result);
   }
   //ASSISTANTS END POINTS
-  static async AssistantChange(req, res) {
-    const validateData = validateDataAssistance(req.body);
-    console.log(req.body);
-    const { status, price, id } = validateData.data;
-    console.log(validateData);
-    const result = ServiceModel.AssistantChange({ status, price, id });
-    if (!result) {
-      return res.status(400).json({ message: "error al actualizar los datos" });
-    }
-    return res
-      .status(200)
-      .json({ message: "Datos actualizados correctamente" });
-  } //DONE
+
   static async updatemachine(req, res) {
     console.log(req.body);
 
@@ -308,7 +295,7 @@ export class ServiceController {
   //get all quotes (user/customer)
   static async Userquote(req, res) {
     const { email, status } = req.query;
-    console.log(req.query);
+
     if (email && status) {
       const quotes = await ServiceModel.Userquote({ email, status });
       if (!quotes) {
@@ -318,8 +305,7 @@ export class ServiceController {
       return res.status(200).json({ quotes });
     } else if (email) {
       const quotes = await ServiceModel.Userquote({ email });
-      const { err } = await quotes;
-      if (err) {
+      if (quotes?.err) {
         console.log("quotes");
         return res.status(401).json({ error: "error al recibir los datos" });
       }
@@ -415,10 +401,10 @@ export class ServiceController {
       return res.status(200).json(result);
     }
   }
-  static async Quoteupdate(req, res) {
+  static async QuoteRequest(req, res) {
     const data = req.body;
 
-    const result = await ServiceModel.Quoteupdate({ data });
+    const result = await ServiceModel.QuoteRequest({ data });
     console.log("25252");
     if (result.err) {
       return res.status(404).json({
@@ -430,7 +416,7 @@ export class ServiceController {
   }
 
   /////
-  static async UpdateQuote(req, res) {
+  static async UpdateQuoteFile(req, res) {
     const data = { ...req.body };
     console.log(data);
     const files = req.files?.map((file) => {
@@ -441,7 +427,7 @@ export class ServiceController {
       return data;
     });
 
-    const result = await ServiceModel.UpdateQuote({ data, files });
+    const result = await ServiceModel.UpdateQuoteFile({ data, files });
     console.log(result);
     if (result.err) {
       return res.status(404).json({
@@ -467,7 +453,7 @@ export class ServiceController {
     const { email } = req.query;
     const result = await ServiceModel.CustomerQuotes({ email });
     console.log(result);
-    if (result.err) {
+    if (result?.err) {
       return res.status(404).json({ message: "Error al recibir los quotes" });
     }
 

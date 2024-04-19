@@ -57,18 +57,7 @@ export class ServiceModel {
         "UPDATE  usuarios SET password = ? WHERE phone = ?",
         [password, phone]
       );
-      // const userForToken = {
-      //   id: data.id,
-      //   password: data.password,
-      // };
-      // const token = jwt.sign(userForToken, "1234", { expiresIn: "3d" });
-      // console.log(data);
-      // const userDataToken = {
-      //   name: data.name,
-      //   username: data.surename,
-      //   email: data.email,
-      //   token,
-      // };
+
       return true;
     } catch (err) {
       return { err };
@@ -81,6 +70,7 @@ export class ServiceModel {
         [email]
       );
       const [user] = getUser;
+
       if (!user.id) {
         throw new Error("User Not found");
       }
@@ -254,20 +244,7 @@ export class ServiceModel {
     }
   } //DONE
   //Assistant
-  static async AssistantChange({ status, price, id }) {
-    console.log(price, id, status);
-    try {
-      const insertdata = await connection.query(
-        "UPDATE quotations SET price = ? , status = ? WHERE id_quotation = ? ",
-        [price, status, id]
-      );
-      console.log(insertdata);
-      return insertdata;
-    } catch (err) {
-      console.log(err);
-      return err;
-    }
-  } //hay que arreglar aqui
+
   static async updatemachine({ status, message, id }) {
     try {
       const insertdata = await connection.query(
@@ -285,17 +262,10 @@ export class ServiceModel {
     const { status, shipping_price } = info;
     const quoteId = id.id;
     try {
-      // const [quotes, _] = await connection.query(
-      //   "SELECT quotations.*, usuarios.name , usuarios.phone FROM quotations JOIN usuarios ON usuarios.id  = quotations.user_id ORDER BY quotations.quotation_date ASC"
-      // );
       const [quotes, _] = await connection.query(
         "UPDATE  orders  set shipping_price=? , status=? where id = ?",
         [shipping_price, status, quoteId]
       );
-      // const [updateQuote, row] = await connection.query(
-      //   "INSERT INTO orders (id, total_price) SELECT a.id, SUM(a.price) AS subtotal_price FROM files_details a where a.order_id=? GROUP BY a.id",
-      //   [quoteId]
-      // );
 
       return { quotes };
     } catch (err) {
@@ -388,7 +358,7 @@ export class ServiceModel {
   static async Assistantquote() {
     try {
       const [quotes, _] = await connection.query(
-        "SELECT orders.*, usuarios.name, usuarios.phone, COUNT(files.id) AS total_parts FROM orders JOIN usuarios ON usuarios.id = orders.user_id LEFT JOIN  files ON files.order_id = orders.id WHERE orders.status = 'waiting for price' OR  orders.status = 'quoted' OR orders.status = 'files uploaded' GROUP BY orders.id, usuarios.id, usuarios.name, usuarios.phone ORDER BY orders.date ASC"
+        "SELECT orders.*, usuarios.name, usuarios.phone, COUNT(files.id) AS total_parts FROM orders JOIN usuarios ON usuarios.id = orders.user_id LEFT JOIN  files ON files.order_id = orders.id WHERE orders.status = 'waiting' OR  orders.status = 'quoted' OR orders.status = null GROUP BY orders.id, usuarios.id, usuarios.name, usuarios.phone ORDER BY orders.date ASC"
       );
 
       return { quotes };
@@ -425,14 +395,9 @@ export class ServiceModel {
       const { id: userId } = getUser;
 
       const [getOrders, b] = await connection.query(
-        "SELECT orders.*, usuarios.name , usuarios.phone FROM orders JOIN usuarios ON  status = 'ordered'",
+        "SELECT orders.*, usuarios.name, usuarios.phone, COUNT(files.id) AS total_parts FROM orders JOIN usuarios ON usuarios.id = ? LEFT JOIN  files ON files.order_id = orders.id WHERE orders.status = 'waiting' OR  orders.status = 'ordered' OR orders.status = null GROUP BY orders.id, usuarios.id, usuarios.name, usuarios.phone ORDER BY orders.date ASC",
         [userId]
       );
-
-      // const [getOrders, b] = await connection.query(
-      //   "SELECT * from quotations WHERE user_id = ? AND status = 'ordered'",
-      //   [userId]
-      // );
 
       return getOrders;
     } catch (err) {
@@ -443,7 +408,7 @@ export class ServiceModel {
 
   //Customer
   static async Userquote({ email, status }) {
-    if (email && status) {
+    if (status) {
       try {
         const [searchId, i] = await connection.query(
           "SELECT id FROM usuarios WHERE email=?",
@@ -451,13 +416,8 @@ export class ServiceModel {
         );
         const [{ id }] = searchId;
 
-        // const [quotes, _] = await connection.query(
-        //   "SELECT quotations.*, usuarios.name , usuarios.phone FROM quotations JOIN usuarios ON usuarios.id  = ? AND status= ? ORDER BY quotations.quotation_date ASC",
-        //   [id, status]
-        // );
-
         const [quotes, _] = await connection.query(
-          "SELECT * FROM orders where orders.id  = ?",
+          "SELECT * FROM orders where orders.id  = ? AND status = ?",
           [id]
         );
 
@@ -473,10 +433,11 @@ export class ServiceModel {
         "SELECT id FROM usuarios WHERE email=? ",
         [email]
       );
+
       const [{ id }] = searchId;
 
       const [quotes, _] = await connection.query(
-        "select count(files.id) as total_parts ,orders.user_id, orders.id ,  orders.date , orders.shipping_price ,orders.total_price , orders.status from files join orders on orders.id = files.order_id  AND orders.user_id = ? group by orders.id",
+        "select count(files.id) as total_parts ,orders.user_id, orders.id ,  orders.date , orders.shipping_price ,orders.total_price , orders.status from files join orders on orders.id = files.order_id  AND orders.user_id = ? AND orders.status != 'ordered' group by orders.id",
         [id]
       );
 
@@ -547,11 +508,17 @@ export class ServiceModel {
 
     try {
       const fileId = crypto.randomUUID();
-
+      const updateOrderStatus = await connection.query(
+        "UPDATE orders SET  status = ? WHERE id=?",
+        [null, orderId]
+      );
+      if (updateOrderStatus.affectedRows <= 0) {
+        throw new Error("Error updating status");
+      }
       for (let i = 0; i < files.length; i++) {
         const fileId = crypto.randomUUID();
         const insert = await connection.query(
-          "INSERT INTO files (id , order_id, filename , url_3d) VALUES (?,?,?,?)",
+          "INSERT INTO files (id , order_id, filename , file_url) VALUES (?,?,?,?)",
           [fileId, orderId, files[i].filename, files[i].path]
         );
         if (!insert) {
@@ -587,10 +554,9 @@ export class ServiceModel {
       const newDate = new Date(date);
 
       const orderId = crypto.randomUUID();
-      const status = "files uploaded";
       const setQuote = await connection.query(
-        "INSERT INTO orders (id , user_id ,date , status ) VALUES (?,?,? , ?)",
-        [orderId, id, newDate, status]
+        "INSERT INTO orders (id , user_id ,date  ) VALUES (?,?,?)",
+        [orderId, id, newDate]
       );
 
       for (let i = 0; i < files.length; i++) {
@@ -611,7 +577,7 @@ export class ServiceModel {
       console.log(err);
       return { err };
     }
-  } //done
+  } //done ： create a new quotation uploading files
   static async Singlequote({ quote_id }) {
     console.log("aaaaaa");
     console.log(quote_id);
@@ -640,7 +606,7 @@ export class ServiceModel {
     console.log("aaaaaa");
     try {
       const [[quotedata], _] = await connection.query(
-        "SELECT  DISTINCT  files_details.id , files_details.file_id, files_details.filename , files_details.technology,files_details.roughness ,files_details.material , files_details.material_feature , files_details.finishing, files_details.tolerance ,files_details.threads ,files_details.quantity , files_details.notes ,files_details.price  FROM files_details   inner join files on files.order_id = ? WHERE files_details.file_id = ?",
+        "SELECT  DISTINCT  files_details.id , files_details.file_id, files_details.order_id,files_details.filename , files_details.technology,files_details.roughness ,files_details.material , files_details.material_feature , files_details.finishing, files_details.tolerance ,files_details.threads ,files_details.quantity , files_details.notes ,files_details.price , files_details.status FROM files_details   inner join files on files.order_id = ? WHERE files_details.file_id = ?",
         [quote_id, file_id]
       );
       const [quoteFiles, rows] = await connection.query(
@@ -670,6 +636,10 @@ export class ServiceModel {
         "UPDATE orders SET  date = ? , status = ? WHERE id = ?",
         [newDate, status, id]
       );
+      const updateFilesStatus = await connection.query(
+        "UPDATE files_details SET status='ordered' WHERE order_id=?",
+        [id]
+      );
       console.log("Datos actualizados correctamente");
       //usar el rest operator para poner todos los datos en un nuevo objeto y
       return { message: "Datos actualizados correctamente" };
@@ -678,7 +648,7 @@ export class ServiceModel {
       return { err };
     }
   } //actualiza la quotation : fecha, addres
-  static async Quoteupdate({ data }) {
+  static async QuoteRequest({ data }) {
     const { shipping_date, date, address, id } = data;
     console.log(data);
 
@@ -689,7 +659,7 @@ export class ServiceModel {
       const phone = address?.split("/")[2];
       console.log(phone);
       const [setData, _] = await connection.query(
-        "UPDATE orders SET address = ? ,shipping_date = ? , phone = ? , date = ? , status = 'waiting for price' WHERE id = ?",
+        "UPDATE orders SET address = ? ,shipping_date = ? , phone = ? , date = ? , status = 'waiting' WHERE id = ?",
         [address, shipping_date, phone, newDate, id]
       );
       console.log("Datos actualizados correctamente");
@@ -700,7 +670,7 @@ export class ServiceModel {
       return { err };
     }
   } //actualiza la quotation : fecha, addres
-  static async UpdateQuote({ data, files }) {
+  static async UpdateQuoteFile({ data, files }) {
     const {
       Technology,
       Material,
@@ -737,7 +707,7 @@ export class ServiceModel {
         order_id,
         file_id,
       ];
-      const UpdateQuoteFile = await connection.query(
+      const UpdateFile = await connection.query(
         "UPDATE files_details SET technology = ? , material = ? ,material_feature = ? , finishing = ? , threads = ? , tolerance = ?, roughness=? , notes = ? ,quantity = ? WHERE order_id = ? AND file_id = ? ",
         values
       );
@@ -769,8 +739,8 @@ export class ServiceModel {
       const date = Date.now();
       const newDate = new Date(date);
       const UpdateQuoteDate = await connection.query(
-        "UPDATE orders SET date = ? , status = 'waiting' WHERE id = ? ",
-        [newDate, order_id]
+        "UPDATE orders SET date = ? , status = ? WHERE id = ? ",
+        [newDate, null, order_id]
       );
 
       //usar el rest operator para poner todos los datos en un nuevo objeto y
@@ -826,7 +796,8 @@ export class ServiceModel {
         "SELECT orders.*, usuarios.name , usuarios.phone FROM orders JOIN usuarios ON usuarios.id  = ?  AND status = 'ordered'",
         [userId]
       );
-
+      console.log("asadpisdakmdoiaksdaiskpd");
+      console.log(getOrders);
       return getOrders;
     } catch (err) {
       console.log(err);
