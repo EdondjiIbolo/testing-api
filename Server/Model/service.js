@@ -394,9 +394,12 @@ export class ServiceModel {
       }
       const { id: userId } = getUser;
 
+      // const [getOrders, b] = await connection.query(
+      //   "SELECT orders.*, usuarios.name, usuarios.phone, COUNT(files.id) AS total_parts FROM orders JOIN usuarios ON usuarios.id = ? LEFT JOIN  files ON files.order_id = orders.id WHERE  orders.status = 'ordered' OR orders.status = null GROUP BY orders.id, usuarios.id, usuarios.name, usuarios.phone ORDER BY orders.date ASC",
+      //   [userId]
+      // );
       const [getOrders, b] = await connection.query(
-        "SELECT orders.*, usuarios.name, usuarios.phone, COUNT(files.id) AS total_parts FROM orders JOIN usuarios ON usuarios.id = ? LEFT JOIN  files ON files.order_id = orders.id WHERE orders.status = 'waiting' OR  orders.status = 'ordered' OR orders.status = null GROUP BY orders.id, usuarios.id, usuarios.name, usuarios.phone ORDER BY orders.date ASC",
-        [userId]
+        "SELECT orders.*, usuarios.name, usuarios.phone, COUNT(files.id) AS total_parts FROM orders JOIN usuarios ON orders.user_id = usuarios.id LEFT JOIN files ON files.order_id = orders.id WHERE  orders.status = 'ordered' GROUP BY  orders.id, usuarios.id, usuarios.name, usuarios.phone ORDER BY   orders.date ASC"
       );
 
       return getOrders;
@@ -792,11 +795,14 @@ export class ServiceModel {
       if (!userId) {
         throw new Error("Usuario no encontrado");
       }
+      // const [getOrders, b] = await connection.query(
+      //   "SELECT orders.*, usuarios.name , usuarios.phone FROM orders JOIN usuarios ON usuarios.id  = ?  AND status = 'ordered' group by orders.id",
+      //   [userId]
+      // );
       const [getOrders, b] = await connection.query(
-        "SELECT orders.*, usuarios.name , usuarios.phone FROM orders JOIN usuarios ON usuarios.id  = ?  AND status = 'ordered'",
+        "select count(files.id) as total_parts ,orders.user_id, orders.id ,  orders.date , orders.shipping_price ,orders.total_price , orders.status from files join orders on orders.id = files.order_id  AND orders.user_id = ? AND orders.status = 'ordered' group by orders.id",
         [userId]
       );
-      console.log("asadpisdakmdoiaksdaiskpd");
       console.log(getOrders);
       return getOrders;
     } catch (err) {
@@ -811,7 +817,7 @@ export class ServiceModel {
         [email]
       );
       const { id: userId } = getUser;
-
+      console.log(userId);
       const [getOrders, b] = await connection.query(
         "SELECT orders.*, usuarios.name , usuarios.phone FROM quotations JOIN usuarios ON usuarios.id  = ?  AND status = 'ordered'",
         [userId]
