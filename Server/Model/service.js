@@ -69,18 +69,23 @@ export class ServiceModel {
         "SELECT * FROM usuarios WHERE email = ?",
         [email]
       );
+      const [getAssistant, Arow] = await connection.query(
+        "SELECT name , email , phone FROM assistants"
+      );
+      const assistant = getAssistant[0];
+      console.log(assistant);
       const [user] = getUser;
 
       if (!user.id) {
         throw new Error("User Not found");
       }
-      return user;
+      return { user, assistant };
     } catch (error) {
       console.log(error);
     }
   }
   static async AccountSetting({ info, email }) {
-    const { name, surename, password } = info;
+    const { name, surename, password, company } = info;
 
     try {
       const [querdata, _] = await connection.query(
@@ -92,8 +97,8 @@ export class ServiceModel {
         throw new Error("User not found");
       }
       const updatePassword = await connection.query(
-        "UPDATE usuarios SET password = ? , name = ?, surename=? WHERE email = ?",
-        [password, name, surename, email]
+        "UPDATE usuarios SET password = ? , name = ?, surename=? , email =?, company=? WHERE email = ?",
+        [password, name, surename, email, company, email]
       );
       if (updatePassword.affectedRows === 0) {
         throw new Error("Failed to update password");
@@ -245,13 +250,102 @@ export class ServiceModel {
       return err;
     }
   } //DONE
-  //Assistant
 
-  static async updatemachine({ status, message, id }) {
+  //Assistant
+  static async AssistantLogin({ phone, password }) {
+    console.log("hola");
+    try {
+      const [querdata, _] = await connection.query(
+        "SELECT phone, password , rol_id FROM assistants WHERE phone = ? AND password = ?",
+        [phone, password]
+      );
+      console.log(querdata);
+      const response = await querdata;
+      if (response.length <= 0) {
+        throw new Error("Wrong password or telephone number");
+      }
+
+      const [userInfo, row] = await connection.query(
+        "SELECT * FROM assistants WHERE phone = ?",
+        [phone]
+      );
+
+      const [user] = userInfo;
+      console.log(user);
+      if (!user.name) {
+        throw new Error("Usuario no encontrado");
+      }
+      if (user.rol_id !== 1) {
+        throw new Error("No authorized");
+      }
+      const userForToken = {
+        id: user.id,
+        password: user.password,
+      };
+      const token = jwt.sign(userForToken, "1234", { expiresIn: "3d" });
+      const data = {
+        name: user.name,
+        username: user.surename,
+        email: user.email,
+        token,
+      };
+
+      return data;
+    } catch (err) {
+      console.log(err);
+      return { err };
+    }
+  }
+  static async AssistantInfo({ email }) {
+    try {
+      const [getAssistant, Arow] = await connection.query(
+        "SELECT name , email , phone FROM assistants WHERE email=?",
+        [email]
+      );
+      const assistant = getAssistant[0];
+      console.log(assistant);
+      const [user] = getUser;
+
+      if (!assistant.id) {
+        throw new Error("Assistant account Not found");
+      }
+      return { assistant };
+    } catch (error) {
+      console.log(error);
+      return { err };
+    }
+  }
+  static async AssistantSetting({ info, email }) {
+    const { name, phone, password } = info;
+
+    try {
+      const [querdata, _] = await connection.query(
+        "SELECT * FROM assistants WHERE email = ? ",
+        [email]
+      );
+
+      if (querdata.length <= 0) {
+        throw new Error("Assistant not found not found");
+      }
+      const updatePassword = await connection.query(
+        "UPDATE assistants SET password = ? , name = ?,  email =?, phone=? WHERE email = ?",
+        [password, name, email, phone, email]
+      );
+      if (updatePassword.affectedRows === 0) {
+        throw new Error("Failed to update password");
+      }
+
+      return updatePassword;
+    } catch (err) {
+      console.log(err);
+      return { err };
+    }
+  }
+  static async updatemachine({ status_message, id }) {
     try {
       const insertdata = await connection.query(
-        "UPDATE files_details SET status = ? , status_message = ? WHERE file_id = ? ",
-        [status, message, id]
+        "UPDATE files_details SET  status_message = ? WHERE file_id = ? ",
+        [status_message, id]
       );
       console.log(insertdata);
       return insertdata;
@@ -260,13 +354,46 @@ export class ServiceModel {
       return err;
     }
   }
-  static async ShippingPrice({ id, info }) {
-    const { status, status_message } = info;
+  static async updateOrderStatus({ status_message, id, status }) {
+    try {
+      const insertdata = await connection.query(
+        "UPDATE orders SET  status_message = ? , sub_status = ? WHERE id = ? ",
+        [status_message, status, id]
+      );
+      if (insertdata.affectedRows <= 0) {
+        throw new Error("Ups, Error updating the data");
+      }
+      console.log(insertdata);
+      return insertdata;
+    } catch (err) {
+      console.log(err);
+      return err;
+    }
+  }
+  static async SetQuoteMessage({ id, info }) {
+    const { status_message } = info;
+
     const quoteId = id.id;
     try {
       const [quotes, _] = await connection.query(
-        "UPDATE  orders  set status_message=? , status=? where id = ?",
-        [status_message, status, quoteId]
+        "UPDATE  orders  set status_message= ?  where id = ?",
+        [status_message, quoteId]
+      );
+
+      return { quotes };
+    } catch (err) {
+      console.log(err);
+      return { err };
+    }
+  }
+  static async ShippingPrice({ id, info }) {
+    const { shipping_price } = info;
+    console.log(info);
+    const quoteId = id.id;
+    try {
+      const [quotes, _] = await connection.query(
+        "UPDATE  orders  set  shipping_price=? where id = ?",
+        [shipping_price, quoteId]
       );
 
       return { quotes };
@@ -277,17 +404,17 @@ export class ServiceModel {
   }
   static async TotalQuotationPrice({ info }) {
     const { email, orderId } = info;
-    //revisar si el usuario tiene permisos para realiar cambios
-    //obtener el rol id
 
     try {
       const [[userRole], rows] = await connection.query(
-        "SELECT rol_id FROM usuarios WHERE email=?",
+        "SELECT rol_id FROM assistants WHERE email=?",
         [email]
       );
       const { rol_id } = await userRole;
       if (rol_id === 3) {
-        throw new Error("Permiso denegado");
+        throw new Error(
+          "Unauthorized , you dont have permission to make changes"
+        );
       }
       const [[getTotal], row] = await connection.query(
         "SELECT sub_total, shipping_price, (sub_total + shipping_price) AS total FROM orders where id = ? ",
@@ -299,10 +426,6 @@ export class ServiceModel {
       }
       const { total } = getTotal;
 
-      // const insert = await connection.query(
-      //   "UPDATE  orders SET total_price = ? WHERE id = ?",
-      //   [total, orderId]
-      // );
       const insert = await connection.query(
         "UPDATE orders SET total_price = ? , status = 'quoted' WHERE id = ?",
         [total, orderId]
@@ -321,12 +444,14 @@ export class ServiceModel {
     console.log(orderId);
     try {
       const [[userRole], rows] = await connection.query(
-        "SELECT rol_id FROM usuarios WHERE email=?",
+        "SELECT rol_id FROM assistants WHERE email=?",
         [email]
       );
       const { rol_id } = await userRole;
       if (rol_id === 3) {
-        throw new Error("Permiso denegado");
+        throw new Error(
+          "Unauthorized , you dont have permission to make changes"
+        );
       }
       const [[getTotal], row] = await connection.query(
         "SELECT SUM(files_details.price) as total FROM files_details where order_id = ? ",
@@ -360,7 +485,7 @@ export class ServiceModel {
   static async Assistantquote({ email }) {
     try {
       const [verufyUser, _] = await connection.query(
-        "SELECT * FROM usuarios WHERE email =?",
+        "SELECT * FROM assistants WHERE email =?",
         [email]
       );
       const [user] = verufyUser;
@@ -375,7 +500,7 @@ export class ServiceModel {
 
     try {
       const [quotes, _] = await connection.query(
-        "SELECT orders.*, usuarios.name, usuarios.phone, COUNT(files.id) AS total_parts FROM orders JOIN usuarios ON usuarios.id = orders.user_id LEFT JOIN  files ON files.order_id = orders.id WHERE orders.status = 'waiting' OR  orders.status = 'quoted' OR orders.status = null GROUP BY orders.id, usuarios.id, usuarios.name, usuarios.phone ORDER BY orders.date ASC"
+        "SELECT orders.*, usuarios.name, usuarios.phone, COUNT(files.id) AS total_parts FROM orders JOIN usuarios ON usuarios.id = orders.user_id LEFT JOIN  files ON files.order_id = orders.id WHERE orders.status != 'ordered'  GROUP BY orders.id, usuarios.id, usuarios.name, usuarios.phone ORDER BY orders.date ASC"
       );
 
       return { quotes };
@@ -384,11 +509,77 @@ export class ServiceModel {
       return { err };
     }
   }
+  static async AssistantHelp({ data }) {
+    const {
+      Technology,
+      Material,
+      MaterialFeature,
+      Finishing,
+      Tolerance,
+      Roughness,
+      Threads,
+      notes,
+      user,
+      order_id,
+      file_id,
+      quantity,
+    } = data;
+    console.log(quantity);
+
+    try {
+      const [[getUser], _] = await connection.query(
+        "SELECT * from assistants WHERE email = ?",
+        [user]
+      );
+      if (!getUser.id) {
+        throw new Error(
+          "Unauthorized , you dont have permission to make changes"
+        );
+      }
+
+      const values = [
+        Technology,
+        Material,
+        MaterialFeature,
+        Finishing,
+        Threads,
+        Tolerance,
+        Roughness,
+        notes,
+        quantity,
+        order_id,
+        file_id,
+      ];
+      console.log(values);
+      const UpdateFile = await connection.query(
+        "UPDATE files_details SET technology = ? , material = ? ,material_feature = ? , finishing = ? , threads = ? , tolerance = ?, roughness=? , notes = ? , quantity = ? WHERE order_id = ? AND file_id = ?",
+        values
+      );
+
+      const date = Date.now();
+      const newDate = new Date(date);
+      const UpdateQuoteDate = await connection.query(
+        "UPDATE orders SET date = ? , status = ? WHERE id = ? ",
+        [newDate, "uploaded", order_id]
+      );
+
+      //usar el rest operator para poner todos los datos en un nuevo objeto y
+      return { message: "Datos actualizados correctamente" };
+    } catch (err) {
+      console.log(err);
+      return { err };
+    }
+  }
+  //this one is for update files_Details price
   static async UpdatePrice({ price, id }) {
     try {
       const [setData, _] = await connection.query(
-        "UPDATE files_details SET price = ? WHERE file_id = ?",
+        "UPDATE files_details SET unit_price = ? WHERE file_id = ?",
         [price, id]
+      );
+      const [updateTotalPrice, updtPriceRow] = await connection.query(
+        "UPDATE files_details SET price = quantity * unit_price WHERE file_id = ?",
+        [id]
       );
 
       console.log("Datos actualizados correctamente");
@@ -399,22 +590,42 @@ export class ServiceModel {
       return { err };
     }
   } //done
+  static async DownLoadFiles({ id }) {
+    try {
+      const [[getImportantFile], improw] = await connection.query(
+        "SELECT filename FROM files_details WHERE id =?",
+        [id]
+      );
+      const [getFiles, row] = await connection.query(
+        "SELECT file_name FROM other_files WHERE file_id =?",
+        [id]
+      );
+      const impfileortantFile = getImportantFile.filename;
+
+      const files = [...getFiles, { file_name: impfileortantFile }];
+
+      return files;
+    } catch (err) {
+      console.log(err);
+      return { err };
+    }
+  }
   static async GetAsssistantOrders({ email }) {
     try {
-      const [[getUser], _] = await connection.query(
-        "SELECT id , rol_id from usuarios WHERE email = ?",
+      const [verufyUser, _] = await connection.query(
+        "SELECT * FROM assistants WHERE email =?",
         [email]
       );
-      const { rol_id } = await getUser;
-      if (rol_id === 3) {
-        throw new Error("Permiso denegado");
+      const [user] = verufyUser;
+      console.log(user);
+      if (user.rol_id !== 1) {
+        throw new Error("Unauthorized , Frobidden Page");
       }
-      const { id: userId } = getUser;
-
-      // const [getOrders, b] = await connection.query(
-      //   "SELECT orders.*, usuarios.name, usuarios.phone, COUNT(files.id) AS total_parts FROM orders JOIN usuarios ON usuarios.id = ? LEFT JOIN  files ON files.order_id = orders.id WHERE  orders.status = 'ordered' OR orders.status = null GROUP BY orders.id, usuarios.id, usuarios.name, usuarios.phone ORDER BY orders.date ASC",
-      //   [userId]
-      // );
+    } catch (err) {
+      console.log(err);
+      return { err };
+    }
+    try {
       const [getOrders, b] = await connection.query(
         "SELECT orders.*, usuarios.name, usuarios.phone, COUNT(files.id) AS total_parts FROM orders JOIN usuarios ON orders.user_id = usuarios.id LEFT JOIN files ON files.order_id = orders.id WHERE  orders.status = 'ordered' GROUP BY  orders.id, usuarios.id, usuarios.name, usuarios.phone ORDER BY   orders.date ASC"
       );
@@ -424,30 +635,10 @@ export class ServiceModel {
       console.log(err);
       return { err };
     }
-  } //revisar a  medias
+  } //Done
 
   //Customer
   static async Userquote({ email, status }) {
-    if (status) {
-      try {
-        const [searchId, i] = await connection.query(
-          "SELECT id FROM usuarios WHERE email=?",
-          [email]
-        );
-        const [{ id }] = searchId;
-
-        const [quotes, _] = await connection.query(
-          "SELECT * FROM orders where orders.id  = ? AND status = ?",
-          [id]
-        );
-
-        return quotes;
-      } catch (err) {
-        console.log(err);
-        return err;
-      }
-    }
-
     try {
       const [searchId, i] = await connection.query(
         "SELECT id FROM usuarios WHERE email=? ",
@@ -457,7 +648,7 @@ export class ServiceModel {
       const [{ id }] = searchId;
 
       const [quotes, _] = await connection.query(
-        "select count(files.id) as total_parts ,orders.user_id, orders.id ,  orders.date , orders.shipping_price ,orders.total_price , orders.status from files join orders on orders.id = files.order_id  AND orders.user_id = ? AND orders.status != 'ordered' group by orders.id",
+        "select count(files.id) as total_parts ,orders.user_id, orders.id ,  orders.date , orders.shipping_price , orders.total_price, orders.status_message , orders.status from files join orders on orders.id = files.order_id  AND orders.user_id = ? AND orders.status != 'ordered'  group by orders.id",
         [id]
       );
 
@@ -465,64 +656,8 @@ export class ServiceModel {
     } catch (err) {
       console.log(err);
       return { err };
-    } //Done recive all quotes-customer
-  }
-  static async Sendquote({ data }) {
-    console.log(data);
-
-    const {
-      quantity,
-      Technology,
-      Material,
-      Finishing,
-      Tolerance,
-      Roughness,
-      Threads,
-      lead_time,
-      name,
-      username,
-      shipping_date,
-      address,
-      email,
-      token,
-      Quotation_id,
-    } = data;
-    console.log(data);
-
-    const date = Date.now();
-    const newDate = new Date(date);
-    try {
-      const [[userId], _] = await connection.query(
-        "SELECT id FROM usuarios WHERE email= ?",
-        [email]
-      );
-      const { id } = userId;
-
-      const insertQuote = await connection.query(
-        "UPDATE quotations SET technology = ? , material = ? , finishing = ? , tolerance = ? , threads = ? , lead_time = ? , address = ? , quantity = ? , quotation_Date = ?,   note = ? , shipping_date = ? WHERE   id_quotation = ? ",
-        [
-          Technology,
-          Material,
-          Finishing,
-          Tolerance,
-          Threads,
-          lead_time,
-          address,
-          quantity,
-          newDate,
-          "none",
-          shipping_date,
-          Quotation_id,
-        ]
-      );
-
-      return insertQuote;
-    } catch (err) {
-      console.log(err);
-
-      return err;
     }
-  } //Revisar : urgente
+  } //Done recive all quotes-customer
   static async AddFiles({ orderId, files }) {
     // recuperar el id del usuario
 
@@ -530,13 +665,21 @@ export class ServiceModel {
       const fileId = crypto.randomUUID();
       const updateOrderStatus = await connection.query(
         "UPDATE orders SET  status = ? WHERE id=?",
-        [null, orderId]
+        ["uploaded", orderId]
       );
       if (updateOrderStatus.affectedRows <= 0) {
         throw new Error("Error updating status");
       }
+      function generateNumericUUID(letter) {
+        const timestamp = new Date().getTime(); // Obtener el timestamp actual
+        const randomNumber = Math.floor(Math.random() * 100000); // Número aleatorio de 6 dígitos
+        // Concatenar el timestamp y el número aleatorio para formar el UUID
+        const numericUUID = `${letter}-${timestamp}${randomNumber}`;
+
+        return numericUUID; // Convertir el UUID a un número entero
+      }
       for (let i = 0; i < files.length; i++) {
-        const fileId = crypto.randomUUID();
+        const fileId = generateNumericUUID("F");
         const insert = await connection.query(
           "INSERT INTO files (id , order_id, filename , file_url) VALUES (?,?,?,?)",
           [fileId, orderId, files[i].filename, files[i].path]
@@ -544,10 +687,13 @@ export class ServiceModel {
         if (!insert) {
           throw new Error("Error adding new File");
         }
-        const fd_id = crypto.randomUUID();
+        const fd_id = generateNumericUUID("FD");
+        const status = "uploaded";
+        const message =
+          "  Please proceed with a manual quote request. You can also split parts to different quotes for faster quoting.";
         const insert_fd = await connection.query(
-          "INSERT INTO files_details (id , order_id, file_id,filename) VALUES (?,?,?,?)",
-          [fd_id, orderId, fileId, files[i].filename]
+          "INSERT INTO files_details (id , order_id, file_id,filename , status,status_message) VALUES (?,?,?,?,?,?)",
+          [fd_id, orderId, fileId, files[i].filename, status, message]
         );
         if (!insert) {
           throw new Error("Error adding new File info");
@@ -559,7 +705,7 @@ export class ServiceModel {
       console.log(err);
       return { err };
     }
-  } //done
+  } //done : Add more files(machine parts) to a quotation
   static async Newquote({ email, files }) {
     // recuperar el id del usuario
     try {
@@ -573,25 +719,37 @@ export class ServiceModel {
       const date = Date.now();
       const newDate = new Date(date);
 
-      const orderId = crypto.randomUUID();
-      const setQuote = await connection.query(
-        "INSERT INTO orders (id , user_id ,date  ) VALUES (?,?,?)",
-        [orderId, id, newDate]
-      );
+      function generateNumericUUID(letter) {
+        const timestamp = new Date().getTime(); // Obtener el timestamp actual
+        const randomNumber = Math.floor(Math.random() * 100000); // Número aleatorio de 6 dígitos
+        // Concatenar el timestamp y el número aleatorio para formar el UUID
+        const numericUUID = `${letter}-${timestamp}${randomNumber}`;
 
-      for (let i = 0; i < files.length; i++) {
-        const fileId = crypto.randomUUID();
-        const insert = await connection.query(
-          "INSERT INTO files (id , order_id, filename , file_url ) VALUES (?,?,?,?)",
-          [fileId, orderId, files[i].filename, files[i].path]
-        );
-        const fd_id = crypto.randomUUID();
-        const insert_fd = await connection.query(
-          "INSERT INTO files_details (id , order_id, file_id, filename ) VALUES (?,?,?,?)",
-          [fd_id, orderId, fileId, files[i].filename]
-        );
+        return numericUUID; // Convertir el UUID a un número entero
       }
 
+      // Ejemplo de uso:
+      const orderId = generateNumericUUID("Q");
+
+      const status = "uploaded";
+      const message =
+        "  Please proceed with a manual quote request. You can also split parts to different quotes for faster quoting.";
+      const setQuote = await connection.query(
+        "INSERT INTO orders (id , user_id ,date,status ,status_message ) VALUES (?,?,?,?,?)",
+        [orderId, id, newDate, status, message]
+      );
+      for (let i = 0; i < files.length; i++) {
+        const fileId = generateNumericUUID("F");
+        const insert = await connection.query(
+          "INSERT INTO files (id , order_id, filename , file_url  ) VALUES (?,?,?,?)",
+          [fileId, orderId, files[i].filename, files[i].path]
+        );
+        const fd_id = generateNumericUUID("FD");
+        const insert_fd = await connection.query(
+          "INSERT INTO files_details (id , order_id, file_id, filename, status , status_message ) VALUES (?,?,?,?,?,?)",
+          [fd_id, orderId, fileId, files[i].filename, status, message]
+        );
+      }
       return { setQuote, orderId };
     } catch (err) {
       console.log(err);
@@ -621,21 +779,28 @@ export class ServiceModel {
       console.log(err);
       return err;
     }
-  } //done
+  } //done : get a singgle quote info
   static async SingleFile({ quote_id, file_id }) {
     console.log("aaaaaa");
     try {
       const [[quotedata], _] = await connection.query(
-        "SELECT  DISTINCT  files_details.id , files_details.file_id, files_details.order_id,files_details.filename , files_details.technology,files_details.roughness ,files_details.material , files_details.material_feature , files_details.finishing, files_details.tolerance ,files_details.threads ,files_details.quantity , files_details.notes ,files_details.price , files_details.status FROM files_details   inner join files on files.order_id = ? WHERE files_details.file_id = ?",
+        "SELECT  DISTINCT  files_details.id , files_details.file_id, files_details.order_id,files_details.filename , files_details.technology,files_details.roughness ,files_details.material , files_details.material_feature , files_details.finishing, files_details.tolerance ,files_details.threads ,files_details.quantity , files_details.notes ,files_details.price,files_details.unit_price  , files_details.status FROM files_details   inner join files on files.order_id = ? WHERE files_details.file_id = ?",
         [quote_id, file_id]
       );
+
       const [quoteFiles, rows] = await connection.query(
-        "SELECT file_url , file_name as name FROM other_files where file_id=?",
+        "SELECT file_url , file_name as name FROM other_files where part_id=?",
         [file_id]
       );
+      const [getOrderStatus, fila] = await connection.query(
+        "SELECT sub_status FROM orders where id=?",
+        [quote_id]
+      );
+      const [orderStatus] = getOrderStatus;
       const quoteData = {
         quotedata,
         quoteFiles,
+        orderStatus,
       };
       console.log(quoteData);
 
@@ -644,17 +809,18 @@ export class ServiceModel {
       console.log(err);
       return err;
     }
-  } //done
+  } //done : get a single machine part info
   static async updateStatus({ data }) {
-    const { status, id } = data;
+    const { status, id, sub_status } = data;
     try {
       //  p
       const date = Date.now();
       const newDate = new Date(date);
-
+      const message =
+        "我们正在等待您的付款以处理您的订单。请尽快完成付款以加快处理过程。谢谢";
       const [setData, _] = await connection.query(
-        "UPDATE orders SET  date = ? , status = ? WHERE id = ?",
-        [newDate, status, id]
+        "UPDATE orders SET  date = ? , status = ? , status_message = ? , sub_status=? WHERE id = ?",
+        [newDate, status, message, sub_status, id]
       );
       const updateFilesStatus = await connection.query(
         "UPDATE files_details SET status='ordered' WHERE order_id=?",
@@ -668,6 +834,25 @@ export class ServiceModel {
       return { err };
     }
   } //actualiza la quotation : fecha, addres
+  static async HelpRequest({ id }) {
+    try {
+      console.log(id);
+
+      const text = "help";
+      const status = "quoting";
+      const nullValue = null;
+      const [setData, _] = await connection.query(
+        "UPDATE orders SET sub_status = ? , total_price=?, shipping_price=? , sub_total=? ,status = ? WHERE id = ?",
+        [text, status, nullValue, nullValue, nullValue, id]
+      );
+      console.log("Datos actualizados correctamente");
+
+      return { message: "Datos actualizados correctamente" };
+    } catch (err) {
+      console.log(err);
+      return { err };
+    }
+  } // done : usuario pide ayuda para revisar su quotation
   static async QuoteRequest({ data }) {
     const { shipping_date, date, address, id } = data;
     console.log(data);
@@ -677,13 +862,19 @@ export class ServiceModel {
       const date = Date.now();
       const newDate = new Date(date);
       const phone = address?.split("/")[2];
+      const message = "Please wait for the Manual Quote";
       console.log(phone);
-      const [setData, _] = await connection.query(
-        "UPDATE orders SET address = ? ,shipping_date = ? , phone = ? , date = ? , status = 'waiting' WHERE id = ?",
-        [address, shipping_date, phone, newDate, id]
+      const [updateFiles, row] = await connection.query(
+        "UPDATE files_details SET  status = 'quoting' WHERE order_id = ?",
+        [id]
       );
+      const [setData, _] = await connection.query(
+        "UPDATE orders SET address = ? ,shipping_date = ? , phone = ? , date = ? , status = 'quoting' , status_message = ? WHERE id = ?",
+        [address, shipping_date, phone, newDate, message, id]
+      );
+
       console.log("Datos actualizados correctamente");
-      //usar el rest operator para poner todos los datos en un nuevo objeto y
+
       return { message: "Datos actualizados correctamente" };
     } catch (err) {
       console.log(err);
@@ -703,6 +894,7 @@ export class ServiceModel {
       user,
       order_id,
       file_id,
+      fd_id,
       quantity,
     } = data;
 
@@ -727,6 +919,9 @@ export class ServiceModel {
         order_id,
         file_id,
       ];
+
+      console.log(file_id);
+
       const UpdateFile = await connection.query(
         "UPDATE files_details SET technology = ? , material = ? ,material_feature = ? , finishing = ? , threads = ? , tolerance = ?, roughness=? , notes = ? ,quantity = ? WHERE order_id = ? AND file_id = ? ",
         values
@@ -734,12 +929,12 @@ export class ServiceModel {
       for (const file of files) {
         console.log(file_id);
         try {
-          const { name, path } = file;
+          const { filename, path } = file;
           const id = crypto.randomUUID();
           // Realiza la inserción en la tabla 'other_files' usando la conexión 'connection'
           const insertResult = await connection.query(
-            "INSERT INTO other_files (id, file_name, file_url, file_id) VALUES (?, ?, ?, ?)",
-            [id, name, path, file_id]
+            "INSERT INTO other_files (id, file_name, file_url, file_id,part_id) VALUES (?, ?, ?, ?, ?)",
+            [id, filename, path, fd_id, file_id]
           );
 
           // Manejo de resultado de la inserción si es necesario
@@ -760,7 +955,7 @@ export class ServiceModel {
       const newDate = new Date(date);
       const UpdateQuoteDate = await connection.query(
         "UPDATE orders SET date = ? , status = ? WHERE id = ? ",
-        [newDate, null, order_id]
+        [newDate, "uploaded", order_id]
       );
 
       //usar el rest operator para poner todos los datos en un nuevo objeto y
@@ -770,20 +965,23 @@ export class ServiceModel {
       return { err };
     }
   } // no tocar: actualiza el file de una quotation : file, finishing, etc
-  static async deleteFile({ id, file }) {
+  static async deleteQuote({ id }) {
     const orderId = id;
-    const fileId = file;
 
     try {
       // eliminar de tabla files details
       const [infoDeleteFileData] = await connection.query(
-        "DELETE  from files_details WHERE order_id = ? AND file_id=?",
-        [orderId, fileId]
+        "DELETE  from files_details WHERE order_id = ? ",
+        [orderId]
       );
       // eliminar de tabla files
       const [infoDeleteFile] = await connection.query(
-        "DELETE  from files WHERE order_id = ? AND id=?",
-        [orderId, fileId]
+        "DELETE  from files WHERE order_id = ?",
+        [orderId]
+      );
+      const [infoDeleteOrder] = await connection.query(
+        "DELETE  from orders WHERE  id=?",
+        [orderId]
       );
       if (!infoDeleteFile) {
         throw new Error("Error al borrar los datos en la tabla files");
@@ -792,6 +990,39 @@ export class ServiceModel {
       if (!infoDeleteFileData) {
         throw new Error("Error al borrar los datos en la tabla files details");
       }
+      const message = "Datos borrados correctamente";
+
+      //usar el rest operator para poner todos los datos en un nuevo objeto y
+      return { message };
+    } catch (err) {
+      console.log(err);
+    }
+  } // no tocar : Delete one  one quotation
+  static async deleteFile({ filesDelete }) {
+    try {
+      // eliminar de tabla files details
+      const Delete = filesDelete.map(async (file) => {
+        const [infoDeleteFileData] = await connection.query(
+          "DELETE  from files_details WHERE id = ? ",
+          [file]
+        );
+        if (!infoDeleteFileData) {
+          throw new Error("Error al borrar los datos en la tabla files");
+        }
+      });
+
+      // eliminar de tabla files
+      // const [infoDeleteFile] = await connection.query(
+      //   "DELETE  from files WHERE order_id = ? AND id=?",
+      //   [orderId, fileId]
+      // );
+      // if (!infoDeleteFile) {
+      //   throw new Error("Error al borrar los datos en la tabla files");
+      // }
+
+      // if (!infoDeleteFileData) {
+      //   throw new Error("Error al borrar los datos en la tabla files details");
+      // }
       const message = "Datos borrados correctamente";
 
       //usar el rest operator para poner todos los datos en un nuevo objeto y
@@ -812,12 +1043,9 @@ export class ServiceModel {
       if (!userId) {
         throw new Error("Usuario no encontrado");
       }
-      // const [getOrders, b] = await connection.query(
-      //   "SELECT orders.*, usuarios.name , usuarios.phone FROM orders JOIN usuarios ON usuarios.id  = ?  AND status = 'ordered' group by orders.id",
-      //   [userId]
-      // );
+
       const [getOrders, b] = await connection.query(
-        "select count(files.id) as total_parts ,orders.user_id, orders.id ,  orders.date , orders.shipping_price ,orders.total_price , orders.status from files join orders on orders.id = files.order_id  AND orders.user_id = ? AND orders.status = 'ordered' group by orders.id",
+        "select count(files.id) as total_parts ,orders.user_id, orders.id ,  orders.date , orders.shipping_price ,orders.total_price , orders.status_message , orders.status  , orders.sub_status from files join orders on orders.id = files.order_id  AND orders.user_id = ? AND orders.status = 'ordered' group by orders.id",
         [userId]
       );
       console.log(getOrders);
@@ -826,30 +1054,8 @@ export class ServiceModel {
       console.log(err);
       return { err };
     }
-  } //done : devuelve los quotes de un usuario
-  static async GetOrders({ id }) {
-    try {
-      const [[getUser], _] = await connection.query(
-        "SELECT id from usuarios WHERE email = ?",
-        [email]
-      );
-      const { id: userId } = getUser;
-      console.log(userId);
-      const [getOrders, b] = await connection.query(
-        "SELECT orders.*, usuarios.name , usuarios.phone FROM quotations JOIN usuarios ON usuarios.id  = ?  AND status = 'ordered'",
-        [userId]
-      );
-      // const [getOrders, b] = await connection.query(
-      //   "SELECT * from quotations WHERE user_id = ? AND status = 'ordered'",
-      //   [userId]
-      // );
+  } //done : devuelve los Orders de un usuario
 
-      return getOrders;
-    } catch (err) {
-      console.log(err);
-      return { err };
-    }
-  } //revisar
   static async receiveFile({ id }) {
     try {
       const [[getUser], _] = await connection.query(
@@ -884,4 +1090,28 @@ export class ServiceModel {
       console.log(err);
     }
   } //revisar
+
+  static async GetOrders({ id }) {
+    try {
+      const [[getUser], _] = await connection.query(
+        "SELECT id from usuarios WHERE email = ?",
+        [email]
+      );
+      const { id: userId } = getUser;
+      console.log(userId);
+      const [getOrders, b] = await connection.query(
+        "SELECT orders.*, usuarios.name , usuarios.phone FROM quotations JOIN usuarios ON usuarios.id  = ?  AND status = 'ordered'",
+        [userId]
+      );
+      // const [getOrders, b] = await connection.query(
+      //   "SELECT * from quotations WHERE user_id = ? AND status = 'ordered'",
+      //   [userId]
+      // );
+
+      return getOrders;
+    } catch (err) {
+      console.log(err);
+      return { err };
+    }
+  } //revisar para borrar
 }

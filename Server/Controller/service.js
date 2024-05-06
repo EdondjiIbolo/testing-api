@@ -1,7 +1,10 @@
 import { ServiceModel } from "../Model/service.js";
 import bcrypt from "bcrypt";
 import readFile from "../service/service.js";
-import fs from "fs/promises";
+import fs from "node:fs";
+import archiver from "archiver";
+import path from "path";
+
 const { data: dataInfo } = readFile("../mock/info-mock.json");
 import {
   validateUserSignin,
@@ -11,7 +14,7 @@ import {
   validateDataAssistance,
 } from "../schema/userSchema.mjs";
 import { sendVerifyCode } from "../service/mail.mjs";
-import path from "path";
+
 import { fileURLToPath } from "url";
 
 export class ServiceController {
@@ -142,13 +145,50 @@ export class ServiceController {
     return res.status(200).json(result);
   }
   //ASSISTANTS END POINTS
+  static async AssistantLogin(req, res) {
+    const validateData = validateUserlogin(req.body);
+    console.log(validateData);
+    if (validateData.error) {
+      return res.status(400).json({ error: validateData.error.message });
+    }
+    const { phone, password } = validateData.data;
+    const data = await ServiceModel.AssistantLogin({ phone, password });
+    if (data.err) {
+      return res.status(401).json({
+        error: data.err,
+      });
+    }
+    return res.status(200).json(data);
+  }
+  static async AssistantInfo(req, res) {
+    const { email } = req.query;
 
+    const result = await ServiceModel.AssistantInfo({ email });
+    if (result?.err) {
+      return res.status(400).json({ error: result?.err });
+    }
+    return res.status(201).json(result);
+  }
+  static async AssistantSetting(req, res) {
+    const info = req.body;
+    const { email } = req.query;
+
+    const data = await ServiceModel.AssistantSetting({ info, email });
+    if (data?.err) {
+      return res.status(401).json({
+        error: "invalid user or password",
+      });
+    }
+    return res.status(200).json({
+      message: "Updated Successfully",
+    });
+  }
   static async updatemachine(req, res) {
     console.log(req.body);
 
-    const { status, message, id } = req.body;
+    const { status_message, id } = req.body;
 
-    const result = ServiceModel.updatemachine({ status, message, id });
+    const result = ServiceModel.updatemachine({ status_message, id });
     if (!result) {
       return res.status(400).json({ message: "error al actualizar los datos" });
     }
@@ -156,6 +196,36 @@ export class ServiceController {
       .status(200)
       .json({ message: "Datos actualizados correctamente" });
   } //DONE
+  static async updateOrderStatus(req, res) {
+    console.log(req.body);
+
+    const { status_message, id, status } = req.body;
+
+    const result = ServiceModel.updateOrderStatus({
+      status_message,
+      id,
+      status,
+    });
+    if (!result) {
+      return res.status(400).json({ message: "error al actualizar los datos" });
+    }
+    return res
+      .status(200)
+      .json({ message: "Datos actualizados correctamente" });
+  } //DONE
+  static async AssistantHelp(req, res) {
+    const data = req.body;
+
+    const result = await ServiceModel.AssistantHelp({ data });
+    if (result?.err) {
+      return res.status(404).json({
+        message:
+          "no se pudo actualizar los datos correctamente debido a un error",
+      });
+    }
+    return res.status(200).json(result);
+  }
+  //this one is for update files_Details price
   static async UpdatePrice(req, res) {
     const { price, id } = req.body;
 
@@ -186,14 +256,26 @@ export class ServiceController {
     const result = await ServiceModel.GetAsssistantOrders({ email });
     console.log(result);
     if (result.err) {
-      return res.status(404).json({ message: "Error al recibir los quotes" });
+      return res.status(401).json({ message: "Error al recibir los quotes" });
     }
 
     return res.status(200).json(result);
   }
+  static async SetQuoteMessage(req, res) {
+    const id = req.query;
+    const info = req.body;
+
+    const quotes = await ServiceModel.SetQuoteMessage({ id, info });
+
+    if (quotes.err) {
+      return res.status(400).json({ error: "error al actualizar los datos" });
+    }
+    return res.status(200).json(quotes);
+  }
   static async ShippingPrice(req, res) {
     const id = req.query;
     const info = req.body;
+    console.log(info);
     const quotes = await ServiceModel.ShippingPrice({ id, info });
 
     if (quotes.err) {
@@ -221,7 +303,7 @@ export class ServiceController {
     }
     return res.status(200).json(quotes);
   } //Done
-
+  //Download  a sigle file of a machine part
   static async DonwloadFile(req, res) {
     const { file } = req.query;
     try {
@@ -235,26 +317,40 @@ export class ServiceController {
       return res.status(500).send("Internal server error");
     }
   }
-
-  ////customer end point
-  static async Sendquote(req, res) {
-    const validateData = validateQuotationScheme(req.body);
-
-    if (validateData.error) {
-      return res.status(400).json({ error: "Todos los campos son requeridos" });
-    }
-
-    const { data } = validateData;
-    const result = await ServiceModel.Sendquote({ data });
-
-    if (!result) {
-      return res.status(400).json({ error: "Error al crear el quote" });
+  //Download multipleas files for a machine part
+  static async DownLoadFiles(req, res) {
+    const { id } = req.query;
+    const directorioArchivos = "Server/uploads/";
+    const result = await ServiceModel.DownLoadFiles({ id });
+    if (result?.err) {
+      return res.status(400).json({ message: "Error" });
     }
     console.log(result);
-    return res
-      .status(200)
-      .json({ message: "QUOTED CREATED SUCCESSFULLY", ...result });
-  } //DONE
+    try {
+      // Configurar el stream de salida hacia el cliente
+      res.attachment(`${id}.zip`);
+      const zipStream = archiver("zip");
+      zipStream.pipe(res);
+
+      result?.forEach((archivo) => {
+        const rutaArchivo = path.join(directorioArchivos, archivo?.file_name);
+
+        const fileName = archivo?.file_name.split("-")[1];
+        zipStream.append(fs.createReadStream(rutaArchivo), {
+          name: fileName,
+        });
+      });
+
+      // Finalizar el ZIP y enviar al cliente
+      zipStream.finalize();
+    } catch (error) {
+      console.error("Error al crear el archivo ZIP:", error);
+      res.status(500).send("Error interno del servidor");
+    }
+  }
+
+  ////customer end point
+
   //add more files to the part machine
   static async AddFiles(req, res, next) {
     const { id } = req.body;
@@ -347,10 +443,22 @@ export class ServiceController {
     return res.sendFile(absolutePath);
   } //DONE
   //delete a file
-  static async deleteFile(req, res) {
-    const { quote, file } = req.query;
+  static async deleteQuote(req, res) {
+    const { quote } = req.query;
     const id = quote;
-    const result = await ServiceModel.deleteFile({ id, file });
+    const result = await ServiceModel.deleteQuote({ id });
+    console.log(result);
+    if (!result) {
+      return res.status(404).json({ message: "Error al recibir los quotes" });
+    }
+
+    return res.status(200).json(result);
+  }
+  static async deleteFile(req, res) {
+    const { filesDelete } = req.body;
+    console.log(filesDelete);
+
+    const result = await ServiceModel.deleteFile({ filesDelete });
     console.log(result);
     if (!result) {
       return res.status(404).json({ message: "Error al recibir los quotes" });
@@ -407,6 +515,19 @@ export class ServiceController {
     const data = req.body;
 
     const result = await ServiceModel.QuoteRequest({ data });
+
+    if (result.err) {
+      return res.status(404).json({
+        message:
+          "no se pudo actualizar los datos correctamente debido a un error",
+      });
+    }
+    return res.status(200).json(result);
+  }
+  static async HelpRequest(req, res) {
+    const { id } = req.query;
+
+    const result = await ServiceModel.HelpRequest({ id });
     console.log("25252");
     if (result.err) {
       return res.status(404).json({
@@ -416,19 +537,11 @@ export class ServiceController {
     }
     return res.status(200).json(result);
   }
-
   /////
   static async UpdateQuoteFile(req, res) {
     const data = { ...req.body };
+    const files = req.files;
     console.log(data);
-    const files = req.files?.map((file) => {
-      const data = {
-        path: file.path,
-        name: file.filename,
-      };
-      return data;
-    });
-
     const result = await ServiceModel.UpdateQuoteFile({ data, files });
     console.log(result);
     if (result.err) {

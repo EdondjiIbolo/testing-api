@@ -24,23 +24,28 @@ serviceRouter.post("/recover", ServiceController.recoverPassword);
 ///
 serviceRouter.post(
   "/account-setting",
-  AuthMiddleware,
+
   ServiceController.AccountSetting
 );
-serviceRouter.get(
-  "/account-info",
-  AuthMiddleware,
-  ServiceController.getUserInfo
-);
+serviceRouter.get("/account-info", ServiceController.getUserInfo);
 serviceRouter.post("/order", ServiceController.updateStatus);
 
 //Assistant
 
+serviceRouter.post("/login-assistant", ServiceController.AssistantLogin);
+serviceRouter.get("/account-assistant-info", ServiceController.AssistantInfo);
+serviceRouter.post(
+  "/account-assistant-setting",
+  ServiceController.AssistantSetting
+);
 serviceRouter.post("/update-part-status", ServiceController.updatemachine);
+serviceRouter.post("/update-order-status", ServiceController.updateOrderStatus);
 serviceRouter.post("/update-price", ServiceController.UpdatePrice);
 serviceRouter.get("/assistant-quote", ServiceController.Assistantquote);
 serviceRouter.get("/assistant-orders", ServiceController.GetAsssistantOrders);
+serviceRouter.post("/assistant-help", ServiceController.AssistantHelp);
 serviceRouter.post("/shipping_price", ServiceController.ShippingPrice);
+serviceRouter.post("/quote-message", ServiceController.SetQuoteMessage);
 serviceRouter.post(
   "/update-total_price",
   ServiceController.TotalQuotationPrice
@@ -50,14 +55,17 @@ serviceRouter.post(
   ServiceController.SubTotalQuotationPrice
 );
 serviceRouter.get("/download-file", ServiceController.DonwloadFile);
+serviceRouter.get("/download-files", ServiceController.DownLoadFiles);
 //end point de abajo -> price update
 serviceRouter.get("/customer-quote", ServiceController.Userquote);
-serviceRouter.post("/send-quote", ServiceController.Sendquote);
-serviceRouter.post("/update-order", ServiceController.QuoteRequest);
+// serviceRouter.post("/send-quote", ServiceController.Sendquote);
+serviceRouter.post("/request-quote", ServiceController.QuoteRequest);
+serviceRouter.post("/request-help", ServiceController.HelpRequest);
 
 serviceRouter.get("/file/:id", ServiceController.ReceiveFile);
 serviceRouter.get("/quote", ServiceController.SingleQuote);
 serviceRouter.delete("/quote", ServiceController.deleteFile);
+serviceRouter.delete("/delete-quote", ServiceController.deleteQuote);
 serviceRouter.get("/data", ServiceController.GetData);
 serviceRouter.get("/my-orders", ServiceController.GetOrders); //revisar si se ncita
 serviceRouter.get("/customers-orders", ServiceController.CustomerQuotes);
